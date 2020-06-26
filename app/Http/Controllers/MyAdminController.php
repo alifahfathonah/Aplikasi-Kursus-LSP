@@ -60,14 +60,6 @@ class MyAdminController extends Controller
     }
 
 
-    public function useraffiliate()
-    {
-        $affiliateid = Auth::user()->affiliate_id;
-        $referred = User::where('referred_by', 'like', $affiliateid)->count();
-
-        return view('layouts.user.affiliate', compact('referred'));
-    }
-
     public function message()
     {
         $messages = Message::where('user', 'admin')->latest()->paginate(10);

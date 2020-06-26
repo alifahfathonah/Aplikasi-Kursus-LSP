@@ -92,13 +92,14 @@ Route::get('change-password', 'ChangePasswordController@index');
 Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
 
 // USER
-Route::prefix('dashboard/user')->group(function () {
-    Route::get('message', 'MyAdminController@userMessage');
-    Route::get('message/{message}', 'MyAdminController@showUserMessage');
-    Route::get('profile', 'MyAdminController@showUserProfile');
-    Route::post('profile/{myAdmin}', 'MyAdminController@updateUserProfile');
-    Route::delete('message/{message}', 'MessagesController@userMessageDestroy');
-    Route::get('affiliate', 'MyAdminController@useraffiliate');
+Route::group(['middleware' => ['user']], function () {
+    Route::prefix('dashboard/user')->group(function () {
+        Route::get('message', 'MyAdminController@userMessage');
+        Route::get('message/{message}', 'MyAdminController@showUserMessage');
+        Route::get('profile', 'MyAdminController@showUserProfile');
+        Route::post('profile/{myAdmin}', 'MyAdminController@updateUserProfile');
+        Route::delete('message/{message}', 'MessagesController@userMessageDestroy');
+    });
 });
 
 // Pages User
