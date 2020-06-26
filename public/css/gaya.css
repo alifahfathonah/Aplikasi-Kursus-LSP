@@ -1,0 +1,224 @@
+/* Font */
+
+@font-face {
+    font-family: 'latohairline_italic';
+    src: url('/fonts/lato/lato-thinitalic-webfont.woff2') format('woff2'), url('/fonts/lato/lato-thinitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latohairline';
+    src: url('/fonts/lato/lato-thin-webfont.woff2') format('woff2'), url('/fonts/lato/lato-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoregular';
+    src: url('/fonts/lato/lato-regular-webfont.woff2') format('woff2'), url('/fonts/lato/lato-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latolight_italic';
+    src: url('/fonts/lato/lato-lightitalic-webfont.woff2') format('woff2'), url('/fonts/lato/lato-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latolight';
+    src: url('/fonts/lato/lato-light-webfont.woff2') format('woff2'), url('/fonts/lato/lato-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoitalic';
+    src: url('/fonts/lato/lato-italic-webfont.woff2') format('woff2'), url('/fonts/lato/lato-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latobold_italic';
+    src: url('/fonts/lato/lato-bolditalic-webfont.woff2') format('woff2'), url('/fonts/lato/lato-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latobold';
+    src: url('/fonts/lato/lato-bold-webfont.woff2') format('woff2'), url('/fonts/lato/lato-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoblack_italic';
+    src: url('/fonts/lato/lato-blackitalic-webfont.woff2') format('woff2'), url('/fonts/lato/lato-blackitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoblack';
+    src: url('/fonts/lato/lato-black-webfont.woff2') format('woff2'), url('/fonts/lato/lato-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+
+button {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+
+h5 {
+    font-family: 'Lato', sans-serif;
+}
+
+.list-group-item.active {
+    background-color: rgb(80, 160, 80);
+    border-color: rgb(80, 160, 80);
+}
+
+#list-panel a {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+#list-panel i {
+    margin-bottom: 5px;
+}
+
+.tune-ico i {
+    position: relative;
+    margin-right: 2px;
+}
+
+.tune-ico {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 15px;
+    width: 140px;
+}
+
+#tune-img-thumb {
+    width: 150px;
+    height: 150px;
+    margin: 5px 10px;
+}
+
+#tune-vid-thumb {
+    width: 150px;
+    height: 150px;
+    margin: 5px 10px;
+}
+
+#tune-edit-img {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#tune-edit-img .card {
+    width: auto;
+    align-items: center;
+    margin-bottom: 10px
+}
+
+#tune-edit-img img {
+    width: 200px;
+    height: 150px;
+}
+
+#tune-edit-img .card-body {
+    margin: -15px 0px -15px 0px;
+}
+
+#tune-edit-vid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#tune-edit-vid .card {
+    width: auto;
+    align-items: center;
+    margin-bottom: 10px
+}
+
+#tune-edit-vid video {
+    width: 200px;
+    height: 150px;
+}
+
+#tune-edit-vid .card-body {
+    margin: -15px 0px -15px 0px;
+}
+
+.tune-profile-pict {
+    margin-top: 20px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+textarea[readonly]#message-read {
+    background-color: transparent;
+    font-size: 1em;
+}
+
+.lilbit-bottom {
+    margin-bottom: 10px;
+}
+
+.displayPicture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.pagination {
+    margin-top: 10px;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    color: rgb(201, 152, 77);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: rgb(201, 152, 77);
+    border-color: rgb(201, 152, 77);
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+    background-color: rgb(201, 152, 77);
+    color: white;
+    border-color: white;
+}
+
+.upper-line {
+    display: flex;
+    justify-content: space-between;
+}
+
+.upper-line .input-group {
+    width: 200px !important;
+}

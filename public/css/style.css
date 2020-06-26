@@ -1,0 +1,1175 @@
+/* Font */
+
+@font-face {
+    font-family: 'latohairline_italic';
+    src: url('/fonts/lato/lato-thinitalic-webfont.woff2') format('woff2'), url('/fonts/lato/lato-thinitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latohairline';
+    src: url('/fonts/lato/lato-thin-webfont.woff2') format('woff2'), url('/fonts/lato/lato-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoregular';
+    src: url('/fonts/lato/lato-regular-webfont.woff2') format('woff2'), url('/fonts/lato/lato-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latolight_italic';
+    src: url('/fonts/lato/lato-lightitalic-webfont.woff2') format('woff2'), url('/fonts/lato/lato-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latolight';
+    src: url('/fonts/lato/lato-light-webfont.woff2') format('woff2'), url('/fonts/lato/lato-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoitalic';
+    src: url('/fonts/lato/lato-italic-webfont.woff2') format('woff2'), url('/fonts/lato/lato-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latobold_italic';
+    src: url('/fonts/lato/lato-bolditalic-webfont.woff2') format('woff2'), url('/fonts/lato/lato-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latobold';
+    src: url('/fonts/lato/lato-bold-webfont.woff2') format('woff2'), url('/fonts/lato/lato-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoblack_italic';
+    src: url('/fonts/lato/lato-blackitalic-webfont.woff2') format('woff2'), url('/fonts/lato/lato-blackitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoblack';
+    src: url('/fonts/lato/lato-black-webfont.woff2') format('woff2'), url('/fonts/lato/lato-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-Medium.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-ExtraBold.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-LightItalic.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-ThinItalic.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-BoldItalic.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-ExtraBoldItalic.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-ExtraBoldItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-MediumItalic.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-SemiBoldItalic.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-ExtraLight.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-Bold.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-Italic.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-ExtraLightItalic.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-Regular.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-BlackItalic.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-SemiBold.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-Light.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-Thin.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-Black.woff2') format('woff2'), url('/fonts/Montserrat/Montserrat-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* Navbar */
+
+.navbar-brand {
+    font-style: Bold;
+}
+
+.navbar-expand-lg {
+    background-color: rgba(67, 170, 71, 1);
+}
+
+.dropdown-menu {
+    background-color: rgba(80, 160, 80, 1);
+}
+
+.nav-item a {
+    color: white !important;
+}
+
+.dropdown-menu a {
+    background-color: rgba(80, 160, 80, 1);
+    color: white;
+}
+
+.dropdown-menu a:hover {
+    color: rgb(67, 170, 71) !important;
+}
+
+
+/* contactfloat */
+
+#contactfloat {
+    position: fixed;
+    z-index: 2;
+    right: 20;
+    bottom: 50;
+}
+
+#float_telp:hover {
+    -webkit-animation: jello infinite 1s;
+    animation: jello infinite 1s;
+}
+
+#float_whatsapp:hover {
+    -webkit-animation: jello infinite 1s;
+    animation: jello infinite 1s;
+}
+
+#float_email:hover {
+    -webkit-animation: jello infinite 1s;
+    animation: jello infinite 1s;
+}
+
+
+/* Footer */
+
+.myfooter {
+    background-color: rgb(50, 96, 50);
+    color: white;
+    padding-top: 65px;
+    padding-bottom: 40px;
+    position: relative;
+}
+
+.myfooter p {
+    font-size: 16px;
+}
+
+.myfooter i {
+    margin-bottom: 15px;
+}
+
+.myfooter hr {
+    background-color: white;
+}
+
+
+/* ALL */
+
+.col-md-8 p {
+    margin-top: 30px;
+}
+
+.btn_saya {
+    background-color: white;
+    width: 270px;
+    color: rgba(202, 152, 77, 1);
+    border-color: rgba(80, 160, 80, 1);
+    border-width: 2px;
+    font-weight: 900;
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.25));
+}
+
+.btn_saya:hover {
+    background-color: rgba(80, 160, 80, 1);
+    color: white;
+}
+
+h5 {
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
+
+h4 {
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h3 {
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(201, 152, 77);
+}
+
+h1 {
+    color: rgb(201, 152, 77);
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+}
+
+p {
+    font-weight: 300;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+
+label {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    color: rgb(201, 152, 77);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: rgb(201, 152, 77);
+    border-color: rgb(201, 152, 77);
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+    background-color: rgb(201, 152, 77);
+    color: white;
+    border-color: white;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 300px;
+}
+
+.tipe_icon {
+    color: rgb(201, 152, 77);
+}
+
+.swiper-slide {
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.projects {
+    margin: 50px 0px;
+}
+
+.projects h5 {
+    color: rgb(201, 152, 77);
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter !important;
+}
+
+.all_nav h1 {
+    margin-top: 50px;
+    color: black;
+}
+
+.all_nav li a {
+    text-align: center !important;
+    color: black !important;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.all_nav #nav_content {
+    background-color: rgb(225, 219, 204);
+}
+
+.aktif {
+    background-color: rgb(225, 219, 204);
+}
+
+.all_nav img {
+    margin: 50px 0px;
+    width: 100%;
+    height: 250px;
+}
+
+
+/* Jumbotron Home*/
+
+#jb_default {
+    background: url('/images/house2.jpg');
+    background-size: cover;
+    height: 300px;
+}
+
+#jb_home {
+    background: url('/images/house2.jpg');
+    background-size: cover;
+    height: 300px;
+}
+
+#jb_about {
+    background: url('/images/house2.jpg');
+    background-size: cover;
+    height: 300px;
+}
+
+#jb_contact {
+    background: url('/images/house2.jpg');
+    background-size: cover;
+    height: 300px;
+}
+
+#jb_blog {
+    background: url('/images/house2.jpg');
+    background-size: cover;
+    height: 300px;
+}
+
+#jb_aset {
+    background-color: rgb(93, 173, 93);
+    height: 350px;
+}
+
+#jb_aset h1 {
+    color: white;
+}
+
+#jb_aset p {
+    color: white;
+}
+
+#jb_isiblog {
+    background-size: cover !important;
+    height: 300px;
+}
+
+#jb_tipe {
+    background-size: cover !important;
+    height: 300px;
+}
+
+
+/* About */
+
+.about p {
+    color: black;
+}
+
+#btn_about {
+    margin-top: 10px;
+}
+
+#btn_contact {
+    margin-top: 10px;
+}
+
+.about .container {
+    margin-bottom: 50px;
+}
+
+
+/* cluster */
+
+.cluster {
+    margin-top: 40px;
+    /* Parallax BG */
+    background: url("/images/house2.jpg") no-repeat center center fixed;
+    background-size: cover;
+    padding: 50px 0;
+    text-align: center;
+    position: relative;
+}
+
+.cluster::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(240, 255, 240, 0.9);
+    position: absolute;
+    bottom: 0;
+}
+
+.cluster .container {
+    z-index: 1;
+    position: relative;
+}
+
+#img_cluster1 #img_cluster2 {
+    position: relative;
+}
+
+#img_cluster1 img {
+    display: none;
+}
+
+#img_cluster2 img {
+    width: 400px;
+    height: 240px;
+}
+
+#img_cluster2 .btn {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    cursor: pointer;
+    width: 200px;
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.25));
+}
+
+
+/* News */
+
+.news {
+    margin: 40px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+#all_news .card {
+    width: 100%;
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+}
+
+#all_news img {
+    height: 200px;
+}
+
+#all_news {
+    margin-top: 30px;
+    text-align: left;
+}
+
+#all_news .col-md-4 {
+    margin-bottom: 20px;
+}
+
+#all_news h5 {
+    color: rgb(201, 152, 77);
+}
+
+#all_news p {
+    display: none;
+    font-size: 16px;
+}
+
+
+/* About us */
+
+.about-us {
+    margin: auto 25px;
+}
+
+#fiqh {
+    margin-top: 40px;
+}
+
+#keuntungan {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+#keuntungannya {
+    text-align: left;
+}
+
+#keuntungannya h5 {
+    font-size: 14px;
+}
+
+#keuntungannya p {
+    font-size: 14px;
+}
+
+
+/* Akhir about us */
+
+
+/* Contact */
+
+#jb_contact_isi {
+    margin-top: 80px;
+}
+
+#jb_contact h1 {
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#jb_contact p {
+    font-style: italic;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#isi_contact {
+    margin-bottom: 40px;
+}
+
+#isi_contact_kiri {
+    background-color: #f4f4f4;
+    padding: 30px 0px;
+}
+
+#contact_picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 20px 0px;
+}
+
+#isi_contact_kiri h4 {
+    color: rgb(201, 152, 77);
+}
+
+#isi_contact_kiri .btn_saya {
+    width: 200px;
+}
+
+#isi_contact_hubungi p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#isi_contact_alamat p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    font-size: 14px;
+}
+
+#isi_contact_icon i {
+    margin-bottom: 20px;
+    color: rgb(80, 160, 80);
+}
+
+#isi_contact_icon #contact_fb {
+    color: #036CE4;
+}
+
+#isi_contact_icon #contact_wa {
+    color: #66BB6A;
+}
+
+#isi_contact_icon #contact_ig {
+    color: #BC2F9F;
+}
+
+#isi_contact_kanan {
+    text-align: left;
+    margin: 40px 0px;
+    padding: 0px 50px;
+}
+
+#isi_contact_kanan textarea {
+    width: 100%;
+}
+
+#isi_contact_kanan button {
+    width: 200px;
+}
+
+
+/* Akhir Contact */
+
+
+/* News & Update */
+
+.myblog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    margin: 40px 40px;
+}
+
+.myblog .card {
+    margin-top: 20px;
+    width: 100%;
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+}
+
+.myblog img {
+    height: 200px;
+}
+
+.myblog h5 {
+    color: rgb(201, 152, 77);
+}
+
+
+/* Akhir news & update */
+
+
+/* Kontent blog */
+
+#isikonten {
+    margin: 50px 0px;
+}
+
+#isikonten #share_fb {
+    color: #036CE4;
+}
+
+#isikonten #share_wa {
+    color: #66BB6A;
+}
+
+
+/* Akhir konten blog */
+
+
+/* Tipe Lahan */
+
+.isi_tipe {
+    margin: 30px 0px;
+}
+
+.isi_tipe #contact_fb {
+    color: #036CE4;
+}
+
+.isi_tipe #contact_wa {
+    color: #66BB6A;
+}
+
+.isi_tipe #contact_ig {
+    color: #BC2F9F;
+}
+
+.contact2 {
+    margin: 20px 10px;
+    border-style: solid;
+    border-color: rgb(50, 96, 50);
+    padding: 40px 30px;
+}
+
+#desc_aset h4 {
+    font-size: 20px;
+    margin: 20px 0px -20px 0px;
+}
+
+#other_asset {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#other_asset h5 {
+    color: rgb(201, 152, 77);
+}
+
+#other_asset p {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+#other_asset .card {
+    width: 100%;
+    margin: 10px 20px;
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+}
+
+#other_asset .card-info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: -15px;
+}
+
+#other_asset img {
+    height: 240px;
+}
+
+
+/* Dokumentasi */
+
+.documentation {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.documentation .swiper-container {
+    position: relative;
+    height: 300px;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.95);
+    margin-top: 15px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0px 15px 15px rgba(0, 0, 0, 0.5));
+}
+
+.documentation h1 {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.documentation .swiper-slide {
+    background-size: cover;
+    background-position: center;
+}
+
+.documentation h5 {
+    position: absolute;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 5px 5px;
+    margin-top: 40px;
+    z-index: 2;
+}
+
+.testimony img {
+    width: 50px;
+    height: 50px;
+    border-radius: 60px;
+}
+
+.testimony h1 {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+#user_testi {
+    background-color: rgb(80, 160, 80);
+    margin: 20px 10px 0px 10px;
+    border-radius: 25px;
+    padding: 20px 0px;
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
+}
+
+#user_testi h5 {
+    margin-top: 10px;
+    color: white;
+}
+
+#user_testi p {
+    color: white;
+}
+
+.testimony {
+    margin-bottom: 50px;
+}
+
+.filter_aset .row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0px;
+}
+
+.filter_aset select {
+    width: 29%;
+    margin-left: 15px;
+}
+
+.filter_aset .btn_saya {
+    width: 200px;
+    margin: 20px 0px 0px 130px;
+}
+
+#assetnya {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 20px;
+}
+
+#assetnya .card {
+    width: 100%;
+    margin: 10px 0px;
+}
+
+#assetnya img {
+    height: 200px;
+}
+
+#assetnya h5 {
+    color: rgb(201, 152, 77);
+}
+
+#assetnya p {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+#assetnya .card-info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: -15px;
+}
+
+
+/* Versi Desktop */
+
+@media (min-width: 992px) {
+    .list_aset img {
+        height: 200px;
+        width: auto;
+    }
+    .list_aset .card {
+        width: 20rem;
+        height: 20rem;
+        margin: auto;
+        margin-top: 20px !important;
+        filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+    }
+    .filter_aset .btn_saya {
+        margin: auto;
+    }
+    /* navbar */
+    .navbar.scrolled {
+        background-color: #fff !important;
+        transition: background-color 200ms linear;
+        filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+    }
+    .navbar.scrolled a {
+        color: rgb(0, 100, 0) !important;
+        transition: background-color 200ms linear;
+    }
+    .navbar-expand-lg {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .nav-link {
+        margin-right: 20px;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        font-size: 16px;
+    }
+    li.nav-item a:hover {
+        color: rgb(67, 170, 71) !important;
+    }
+    li.nav-item .dropdown-item {
+        color: white !important;
+    }
+    /* all */
+    h1 {
+        font-size: 36px;
+    }
+    p {
+        font-size: 18px;
+    }
+    /* Jumbotron */
+    #jb_home {
+        height: 680px;
+    }
+    #jb_about {
+        height: 720px;
+    }
+    #jb_contact {
+        height: 500px;
+    }
+    #jb_blog {
+        height: 700px;
+    }
+    #jb_aset {
+        height: 400px;
+        background-size: cover !important;
+    }
+    #jb_aset::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 400px;
+        background-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+    }
+    #jb_aset .container {
+        z-index: 1;
+        position: relative;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 600px;
+    }
+    #jb_tipe {
+        height: 1000px;
+    }
+    .tipe {
+        height: 1000px !important;
+    }
+    /* Cluster */
+    .cluster .container {
+        margin: 20px auto;
+    }
+    #img_cluster1 img {
+        display: inline-block;
+        width: 600px;
+        height: 280px;
+        filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.25));
+        margin-left: 60px;
+    }
+    #img_cluster2 img {
+        width: 600px;
+        height: 280px;
+        filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.25));
+    }
+    /* News */
+    .news {
+        margin: 70px auto;
+    }
+    #all_news {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+    }
+    #all_news p {
+        display: inline;
+    }
+    /* About us */
+    .about-us {
+        margin: 80px auto;
+    }
+    /* Contact Us */
+    #contact_picture img {
+        margin: 20px 0px;
+    }
+    #isi_contact_alamat {
+        margin-bottom: 50px;
+    }
+    #isi_contact_kiri h4 {
+        font-size: 28px;
+    }
+    #isi_contact_hubungi p {
+        font-size: 14px;
+    }
+    #isi_contact_alamat p {
+        font-size: 16px;
+    }
+    /* News & Update */
+    .myblog .card {
+        width: 22rem;
+        height: 22rem;
+        margin: auto;
+        margin-top: 20px !important;
+        filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+    }
+    .myblog img {
+        height: 200px;
+    }
+    .myblog h5 {
+        color: rgb(201, 152, 77);
+    }
+    .myblog p {
+        font-size: 14px;
+    }
+    /* Akhir news & update */
+    /* all nav & Project*/
+    #nav_desc {
+        padding-top: 70px;
+    }
+    #nav_desc h1 {
+        font-size: 30px !important;
+    }
+    #nav_desc p {
+        font-size: 16px !important;
+    }
+    .all_nav li a {
+        font-size: 20px;
+    }
+    .all_nav img {
+        margin: 60px 0px;
+        width: 100%;
+        height: 350px;
+    }
+    .projects {
+        margin: 200px 0px;
+    }
+    .all_nav li {
+        padding-left: 20px;
+    }
+    /* Isi Tipe */
+    /* Tipe Lahan */
+    .isi_tipe {
+        margin: 30px 0px;
+    }
+    #desc_aset p {
+        font-size: 16px;
+    }
+    .contact2 {
+        margin: 30px 0px 0px 0px;
+        border-style: solid;
+        border-color: rgb(80, 160, 80);
+        padding: 40px 30px !important;
+        height: 620px;
+    }
+    .contact2 .btn {
+        margin-top: 10px;
+        width: 180px;
+    }
+    #title_others {
+        margin-top: 100px;
+    }
+    #other_asset .card {
+        width: 400px;
+    }
+    #other_asset img {
+        width: 400px;
+    }
+    /* dokumentasi */
+    .documentation .swiper-container {
+        flex-basis: 30%;
+    }
+    #assetnya .card {
+        width: 330px;
+        margin-right: 20px;
+    }
+    #assetnya img {
+        width: 330px;
+    }
+    .filter_aset .btn_saya {
+        width: 200px;
+        margin: 0px 0px 0px 20px;
+    }
+}
