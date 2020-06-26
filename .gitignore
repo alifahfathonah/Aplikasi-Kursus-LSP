@@ -2,21 +2,15 @@
 /public/hot
 
 public/videos/*.mp4
-
-public/videos/upload/*.mp4
-
-public/videos/upload/1588241827.handsound.mp4
-
-public/videos/film.mp4
 public/images/upload/**/*.jpg
 public/images/upload/**/*.jpeg
 public/images/upload/**/*.png
 public/images/upload/**/*.svg
 /storage/*.key
-/vendor
+
 *.mp4
 
-.env
+
 .env.backup
 .phpunit.result.cache
 Homestead.json
