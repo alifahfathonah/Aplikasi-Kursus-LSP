@@ -22,35 +22,19 @@ class AssetController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function index(Pages $pages)
     {
+        if ($pages->exists == false) {
+            $pages = '';
+        }
+
         $assets = DB::table('assets')
             ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
             ->select('assets.*', 'asset_types.tipe')
             ->latest()->paginate(9);
-        $pages = '0';
-        $asset_types = AssetType::all();
-        $provinces = Province::all();
-        $cities = City::all();
-
-        return view('projects.asset.index')
-            ->with(compact('pages'))
-            ->with(compact('asset_types'))
-            ->with(compact('provinces'))
-            ->with(compact('cities'))
-            ->with(compact('assets'));
-    }
-
-    public function index_user(Pages $pages)
-    {
-        $assets = DB::table('assets')
-            ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-            ->select('assets.*', 'asset_types.tipe')
-            ->latest()->paginate(9);
-
-        $asset_types = AssetType::all();
-        $provinces = Province::all();
-        $cities = City::all();
+        $asset_types = AssetType::orderBy('tipe', 'asc')->get();
+        $provinces = Province::orderBy('provinsi', 'asc')->get();
+        $cities = City::orderBy('kota', 'asc')->get();
 
         return view('projects.asset.index')
             ->with(compact('pages'))
@@ -68,8 +52,6 @@ class AssetController extends Controller
             ->paginate(10);
         $cities = City::all();
         $provinces = Province::all();
-
-        // dump($assets);die;
 
         return view('layouts.admin.asset.listAsset')
             ->with(compact('assets'))
@@ -149,9 +131,9 @@ class AssetController extends Controller
 
     public function paginate($items, $perPage = 15, $page = null, $options = [])
     {
-        $page = $page ?: (\Illuminate\Pagination\Paginator::resolveCurrentPage() ?: 1);
-        $items = $items instanceof \Illuminate\Support\Collection ? $items : \Illuminate\Support\Collection::make($items);
-        return new \Illuminate\Pagination\LengthAwarePaginator(array_values($items->forPage($page, $perPage)->toArray()), $items->count(), $perPage, $page, $options);
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : \Illuminate\Support\Collection::make($items);
+        return new LengthAwarePaginator(array_values($items->forPage($page, $perPage)->toArray()), $items->count(), $perPage, $page, $options);
     }
 
     /**
@@ -191,13 +173,15 @@ class AssetController extends Controller
         return $dataLokasi;
     }
 
-    public function filter(Request $request)
+    public function filter(Request $request, Pages $pages)
     {
+        if ($pages->exists == false) {
+            $pages = '';
+        }
 
         $provinces = Province::orderBy('provinsi', 'asc')->get();
         $cities = City::orderBy('kota', 'asc')->get();
-        $asset_types = AssetType::all();
-        $pages = 0;
+        $asset_types = AssetType::orderBy('tipe', 'asc')->get();
 
         if ($request->province != "Select Province") {
             $location = $request->city . ',' . $request->province;
@@ -229,89 +213,6 @@ class AssetController extends Controller
                         ->select('assets.*', 'asset_types.tipe')
                         ->latest()->paginate(9);
 
-                    return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces'));
-                }
-            }
-            //City terisi
-            elseif ($request->city != 'Select City') {
-                //Tipe asset kosong
-                if ($request->tipe == 'Select Asset Type') {
-                    $assets = DB::table('assets')
-                        ->where('assets.lokasi', '=', $location)
-                        ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-                        ->select('assets.*', 'asset_types.tipe')
-                        ->latest()->paginate(9);
-                    return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces'));
-                }
-                //Tipe asset terisi
-                elseif ($request->tipe != 'Select Asset Type') {
-                    $assets = DB::table('assets')
-                        ->where('assets.lokasi', '=', $location)
-                        ->where('assets.tipe_id', '=', $request->tipe)
-                        ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-                        ->select('assets.*', 'asset_types.tipe')
-                        ->latest()->paginate(9);
-                    return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces'));
-                }
-            }
-        } elseif ($request->province != "Select Province") {
-            if ($request->tipe == 'Select Asset Type') {
-                $assets = DB::table('assets')
-                    ->where('assets.lokasi', '=', $location)
-                    ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-                    ->select('assets.*', 'asset_types.tipe')
-                    ->latest()->paginate(9);
-                return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces'));
-            }
-            //Tipe asset terisi
-            elseif ($request->tipe != 'Select Asset Type') {
-                $assets = DB::table('assets')
-                    ->where('assets.lokasi', '=', $location)
-                    ->where('assets.tipe_id', '=', $request->tipe)
-                    ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-                    ->select('assets.*', 'asset_types.tipe')
-                    ->latest()->paginate(9);
-                return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces'));
-            }
-        }
-    }
-
-    public function filter_user(Request $request, Pages $pages)
-    {
-
-        $provinces = Province::orderBy('provinsi', 'asc')->get();
-        $cities = City::orderBy('kota', 'asc')->get();
-        $asset_types = AssetType::all();
-
-        if ($request->province != "Select Province") {
-            $location = $request->city . ',' . $request->province;
-        } elseif ($request->city != "Select City") {
-            foreach ($cities as $city) {
-                if ($request->city == $city->id) {
-                    $location = $city->id . ',' . $city->provinsi_id;
-                }
-            }
-        }
-
-        // Provinsi kosong
-        if ($request->province == "Select Province") {
-            //City kosong
-            if ($request->city == 'Select City') {
-                //Tipe asset kosong
-                if ($request->tipe == 'Select Asset Type') {
-                    $assets = DB::table('assets')
-                        ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-                        ->select('assets.*', 'asset_types.tipe')
-                        ->latest()->paginate(9);
-                    return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces'));
-                }
-                //Tipe asset terisi
-                elseif ($request->tipe != 'Select Asset Type') {
-                    $assets = DB::table('assets')
-                        ->where('assets.tipe_id', '=', $request->tipe)
-                        ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-                        ->select('assets.*', 'asset_types.tipe')
-                        ->latest()->paginate(9);
                     return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces'));
                 }
             }
@@ -433,41 +334,12 @@ class AssetController extends Controller
      * @param  \App\Asset  $asset
      * @return \Illuminate\Http\Response
      */
-    public function show(Asset $asset)
+    public function show(Asset $asset, Pages $pages)
     {
-        $pages = 0;
-        $assets = DB::table('assets')
-            ->where('assets.id', '=', $asset->id)
-            ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-            ->select('assets.*', 'asset_types.tipe')
-            ->first();
-        $dataLokasi = DB::table('cities')
-            ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
-            ->select('provinces.id as prov_id', 'provinces.provinsi', 'cities.*')
-            ->get();
-        $otherAssets = DB::table('assets')
-            ->where('assets.lokasi', '=', $asset->lokasi)
-            ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-            ->select('assets.*', 'asset_types.tipe')
-            ->get();
-
-        $lokasi = explode(',', $asset->lokasi);
-        foreach ($dataLokasi as $data) {
-            if ($data->id == $lokasi[0]) {
-                $city = $data->kota;
-            }
-        }
-        foreach ($dataLokasi as $data) {
-            if ($data->prov_id == $lokasi[1]) {
-                $province = $data->provinsi;
-            }
+        if ($pages->exists == false) {
+            $pages = '';
         }
 
-        return view('projects.asset.showAsset', compact('assets', 'pages', 'city', 'province', 'provinces', 'otherAssets'));
-    }
-
-    public function show_user(Asset $asset, Pages $pages)
-    {
         $assets = DB::table('assets')
             ->where('assets.id', '=', $asset->id)
             ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')

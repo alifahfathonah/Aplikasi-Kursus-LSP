@@ -35,7 +35,6 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        // dump($request);die;
         $message = new Message();
         $message->nama = $request->inputName;
         $message->email = $request->inputEmail;
@@ -45,7 +44,7 @@ class MessagesController extends Controller
         $message->created_at = date('Y-m-d H:i:s');
 
         $message->save();
-        return redirect()->back()->with('success', 'Your message has been successfully sent');  
+        return redirect()->back()->with('success', 'Your message has been sent');  
     }
 
     /**

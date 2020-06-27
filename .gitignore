@@ -1,15 +1,12 @@
 /node_modules
 /public/hot
-
 public/videos/*.mp4
 public/images/upload/**/*.jpg
 public/images/upload/**/*.jpeg
 public/images/upload/**/*.png
 public/images/upload/**/*.svg
 /storage/*.key
-
 *.mp4
-
 .env
 .env.backup
 .phpunit.result.cache

@@ -6,7 +6,6 @@ use File;
 use App\Pages;
 use App\Document;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class DocumentsController extends Controller
 {
@@ -15,17 +14,12 @@ class DocumentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Pages $pages)
     {
-        $pages = 0;
-        $documents = Document::latest()->paginate(9);
-        return view('documentation')
-            ->with(compact('documents'))
-            ->with(compact('pages'));
-    }
-
-    public function index_user(Pages $pages)
-    {
+        if ($pages->exists == false) {
+            $pages = '';
+        }
+        
         $documents = Document::latest()->paginate(9);
         return view('documentation')
             ->with(compact('documents'))
@@ -252,7 +246,6 @@ class DocumentsController extends Controller
 
     public function deleteImage(Request $request, Document $document)
     {
-        // $mydata = DB::table('blogs')->select('gambar')->where('id', $request->id)->get();
         $data = Document::select('gambar')->where('id', $request->id)->get();
         $mygambar =  json_decode($data[0]["gambar"], true);
         $gambar = $request->namafile;
@@ -300,7 +293,6 @@ class DocumentsController extends Controller
                 unset($myVideo[$i]);
                 // Reindex
                 $myArray = array_values($myVideo);
-
 
 
                 // update video ke db

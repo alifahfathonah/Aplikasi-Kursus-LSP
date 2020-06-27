@@ -6,9 +6,6 @@ use File;
 use App\Blog;
 use Illuminate\Http\Request;
 use App\Pages;
-use UxWeb\SweetAlert\SweetAlert;
-use Alert;
-use Illuminate\Support\Facades\DB;
 
 class BlogsController extends Controller
 {
@@ -17,18 +14,12 @@ class BlogsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Pages $pages)
     {
-        $pages = 0;
-        $blogs = Blog::latest()->paginate(6);
-        return view('blog.index')
-            ->with(compact('blogs'))
-            ->with(compact('pages'));
-    }
+        if ($pages->exists == false) {
+            $pages = '';
+        }
 
-
-    public function index_user(Pages $pages)
-    {
         $blogs = Blog::latest()->paginate(6);
         return view('blog.index')
             ->with(compact('blogs'))
@@ -101,16 +92,12 @@ class BlogsController extends Controller
      * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(Blog $blog , Pages $pages)
     {
-        $pages = 0;
-        return view('blog.content')
-            ->with(compact('blog'))
-            ->with(compact('pages'));
-    }
+        if ($pages->exists == false) {
+            $pages = '';
+        }
 
-    public function show_user(Blog $blog, Pages $pages)
-    {
         return view('blog.content')
             ->with(compact('blog'))
             ->with(compact('pages'));
@@ -197,7 +184,6 @@ class BlogsController extends Controller
     {
 
         $gambar = json_decode($blog->gambar);
-        // dump($gambar);die;
         if (!empty($gambar)) {
             for ($i = 0; $i < sizeof($gambar); $i++) {
                 File::delete('images/upload/' . $gambar[$i]);
@@ -210,7 +196,6 @@ class BlogsController extends Controller
 
     public function deleteImage(Request $request, Blog $blog)
     {
-        // $mydata = DB::table('blogs')->select('gambar')->where('id', $request->id)->get();
         $data = Blog::select('gambar')->where('id', $request->id)->get();
         $mygambar =  json_decode($data[0]["gambar"], true);
         $gambar = $request->namafile;
@@ -225,8 +210,6 @@ class BlogsController extends Controller
                 // Reindex
                 $myArray = array_values($mygambar);
 
-
-
                 // update gambar ke db
                 Blog::where('id', $request->id)
                     ->update([
@@ -237,10 +220,6 @@ class BlogsController extends Controller
                 return 'ok';
             }
         }
-
-        // if($mygambar[0] == "1586361506.pedro-da-silva-wbqGYlFqZvo-unsplash.jpg"){
-        //     return 'ok';
-        // }
 
         return 'err';
     }
