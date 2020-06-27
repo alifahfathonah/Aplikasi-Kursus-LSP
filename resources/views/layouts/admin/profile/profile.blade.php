@@ -18,7 +18,7 @@
         <div class="text-center">
             <img src="@if (!empty($user -> photo)) /images/upload/profile/{{$user->photo}} @else /images/default_user.png @endif" alt="image" class="displayPicture">
         </div>
-        <form action="/dashboard/user/profile/{{$user -> id}}" method="post" enctype="multipart/form-data">
+        <form action="/dashboard/admin/profile/{{$user -> id}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="input-group mb-3 tune-profile-pict">
                 <div class="input-group-prepend">

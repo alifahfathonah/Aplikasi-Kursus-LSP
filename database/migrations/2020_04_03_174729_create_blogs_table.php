@@ -17,7 +17,7 @@ class CreateBlogsTable extends Migration
             $table->id('id');
             $table->string('judul');
             $table->longText('konten');
-            $table->string('gambar');
+            $table->longText('gambar');
             $table->timestamps();
         });
     }

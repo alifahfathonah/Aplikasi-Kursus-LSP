@@ -19,7 +19,7 @@ class CreateAssetsTable extends Migration
             $table->longText('deskripsi');
             $table->integer('tipe_id');
             $table->string('lokasi');
-            $table->string('gambar');
+            $table->longText('gambar');
             $table->timestamps();
         });
     }

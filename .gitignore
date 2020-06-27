@@ -10,7 +10,7 @@ public/images/upload/**/*.svg
 
 *.mp4
 
-
+.env
 .env.backup
 .phpunit.result.cache
 Homestead.json

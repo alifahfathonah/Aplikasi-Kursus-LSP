@@ -72,7 +72,7 @@ class BlogsController extends Controller
         $request->validate([
             'judul' => 'required',
             'konten' => 'required',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 
         $blog = new Blog();
@@ -153,7 +153,7 @@ class BlogsController extends Controller
         $request->validate([
             'judul' => 'required',
             'konten' => 'required',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $data = Blog::select('gambar')->where('id', $blog->id)->get();
