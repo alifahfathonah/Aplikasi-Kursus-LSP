@@ -1,5 +1,5 @@
 @extends('master')
-@section('mytitle', 'Jasa')
+@section('mytitle', 'Jasa | Abu Properti')
 
 <div class="jumbotron jumbotron-fluid text-center animate__animated animate__fadeIn" id="jb_tipe" style="background: url('/images/konstruksi.jpg');">
   <div class="container">

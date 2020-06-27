@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,19 +16,18 @@ use Illuminate\Support\Facades\Route;
 
 // Pages Default
 Route::get('/', 'PagesController@home');
-Route::get('/about', 'PagesController@about');
-Route::get('/contact', 'PagesController@contact');
-Route::get('/asset', 'AssetController@index');
-Route::get('/jasa', 'PagesController@jasa');
-Route::get('/testimony', 'PagesController@testimony');
-Route::get('/documentation', 'DocumentsController@index');
-Route::get('/blog', 'BlogsController@index');
-Route::get('/blog/{blog}', 'BlogsController@show');
-Route::post('/pesan/add', 'MessagesController@store');
-Route::post('/getCities', 'AssetController@getCities');
-Route::post('/getAllCities', 'AssetController@getAllCities');
-Route::post('/asset/filter', 'AssetController@filter');
-Route::get('/asset/{asset}', 'AssetController@show');
+Route::get('about', 'PagesController@about');
+Route::get('contact', 'PagesController@contact');
+Route::get('asset', 'AssetController@index');
+Route::get('jasa', 'PagesController@jasa');
+Route::get('testimony', 'PagesController@testimony');
+Route::get('documentation', 'DocumentsController@index');
+Route::get('blog', 'BlogsController@index');
+Route::get('blog/{blog}', 'BlogsController@show');
+Route::post('getCities', 'AssetController@getCities');
+Route::post('getAllCities', 'AssetController@getAllCities');
+Route::post('asset/filter', 'AssetController@filter');
+Route::get('asset/{asset}', 'AssetController@show');
 Route::post('pesan/add', 'MessagesController@store');
 
 //Admin
@@ -53,7 +53,7 @@ Route::group(['prefix' => 'dashboard/admin', 'middleware' => ['admin']], functio
     Route::post('document/deleteVideo', 'DocumentsController@deleteVideo');
     Route::get('document', 'DocumentsController@list');
     Route::get('document/filter', 'DocumentsController@filter_list');
-    Route::get('document/{document}', 'DocumentsController@show_detail');
+    Route::get('document/{document}', 'DocumentsController@show');
 
     // Manage User Admin
     Route::get('manage', 'MyAdminController@manage');
@@ -64,8 +64,8 @@ Route::group(['prefix' => 'dashboard/admin', 'middleware' => ['admin']], functio
     Route::patch('manage/{myAdmin}', 'MyAdminController@update');
 
     //Message Admin
-    Route::get('message', 'MyAdminController@message');
-    Route::get('message/{message}', 'MyAdminController@showMessage');
+    Route::get('message', 'MessagesController@list');
+    Route::get('message/{message}', 'MessagesController@show');
     Route::delete('message/{message}', 'MessagesController@destroy');
 
     //Profile Admin
@@ -85,22 +85,22 @@ Route::group(['prefix' => 'dashboard/admin', 'middleware' => ['admin']], functio
     Route::delete('asset/{asset}', 'AssetController@destroy');
 });
 
+// USER
+Route::group(['prefix' => 'dashboard/user', 'middleware' => ['user']], function () {
+    Route::get('message', 'MessagesController@list');
+    Route::get('message/{message}', 'MessagesController@show');
+    Route::get('profile', 'MyAdminController@showProfile');
+    Route::post('profile/{myAdmin}', 'MyAdminController@updateProfile');
+    Route::delete('message/{message}', 'MessagesController@Destroy');
+});
+
 Auth::routes();
 Route::get('/dashboard', 'MyAdminController@index')->name('dashboard')->middleware('auth');
 Route::get('change-password', 'ChangePasswordController@index');
 Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
 
-// USER
-Route::group(['prefix' => 'dashboard/user', 'middleware' => ['user']], function () {
-    Route::get('message', 'MyAdminController@userMessage');
-    Route::get('message/{message}', 'MyAdminController@showUserMessage');
-    Route::get('profile', 'MyAdminController@showUserProfile');
-    Route::post('profile/{myAdmin}', 'MyAdminController@updateUserProfile');
-    Route::delete('message/{message}', 'MessagesController@userMessageDestroy');
-});
-
 // Pages User
-Route::get('/{pages}', 'PagesController@home');
+Route::get('{pages}', 'PagesController@home');
 Route::get('about/{pages}', 'PagesController@about');
 Route::get('contact/{pages}', 'PagesController@contact');
 Route::get('jasa/{pages}', 'PagesController@jasa');

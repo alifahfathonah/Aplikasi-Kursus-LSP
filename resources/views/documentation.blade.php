@@ -1,5 +1,5 @@
 @extends('master')
-@section('mytitle', 'Documentation')
+@section('mytitle', 'Documentation | Abu Properti')
 
 <section class="documentation" id="documentation">
     <div class="container-fluid text-center">

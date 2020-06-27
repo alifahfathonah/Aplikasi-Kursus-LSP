@@ -4,28 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MessagesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -44,7 +26,7 @@ class MessagesController extends Controller
         $message->created_at = date('Y-m-d H:i:s');
 
         $message->save();
-        return redirect()->back()->with('success', 'Your message has been sent');  
+        return redirect()->back()->with('success', 'Your message has been sent');
     }
 
     /**
@@ -53,32 +35,34 @@ class MessagesController extends Controller
      * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
+
+    public function list()
+    {
+        $jabatan = Auth::user()->jabatan;
+        $username = Auth::user()->username;
+        $messages = Message::where('user', $username)->latest()->paginate(10);
+        $skipped = ($messages->currentPage() * $messages->perPage()) - $messages->perPage();
+        if ($jabatan == 'admin') {
+            return view('layouts.admin.message.listMessage', compact('messages', 'skipped'));
+        } else {
+            return view('layouts.user.message', compact('messages', 'skipped'));
+        }
+    }
+
     public function show(Message $message)
     {
-        //
-    }
+        $jabatan = Auth::user()->jabatan;
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Message $message)
-    {
-        //
-    }
+        Message::where('id', $message->id)
+            ->update([
+                'read' => 1,
+            ]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Message  $message
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Message $message)
-    {
-        //
+        if ($jabatan == 'admin') {
+            return view('layouts.admin.message.showMessage', compact('message'));
+        } else {
+            return view('layouts.user.showMessage', compact('message'));
+        }
     }
 
     /**
@@ -89,15 +73,15 @@ class MessagesController extends Controller
      */
     public function destroy(Message $message)
     {
+        $jabatan = Auth::user()->jabatan;
+
         $message->delete();
 
-        return redirect('dashboard/admin/message')->with('success', 'The message has been successfully deleted');;
-    }
-
-    public function userMessageDestroy(Message $message)
-    {
-        $message->delete();
-
-        return redirect('dashboard/user/message')->with('success', 'The message has been successfully deleted');
+        if ($jabatan == 'admin') {
+            return redirect('dashboard/admin/message')->with('status', 'The message has been deleted');
+        } else {
+            return redirect('dashboard/user/message')->with('status', 'The message has been deleted');
+        }
+        
     }
 }

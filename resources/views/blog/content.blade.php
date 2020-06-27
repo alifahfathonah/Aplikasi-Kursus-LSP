@@ -1,5 +1,5 @@
 @extends('master')
-@section('mytitle', 'Blog')
+@section('mytitle', 'Blog | Abu Properti')
 
 <div class="swiper-container animate__animated animate__fadeIn">
     <!-- Additional required wrapper -->

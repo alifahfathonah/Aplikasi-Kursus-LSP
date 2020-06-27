@@ -1,5 +1,5 @@
 @extends('master')
-@section('mytitle', 'News & Update')
+@section('mytitle', 'News & Update | Abu Properti')
 
 <div class="jumbotron jumbotron-fluid animate__animated animate__fadeIn" id="jb_blog">
     <div class="container"></div>
@@ -16,7 +16,7 @@
             @foreach($blogs as $blog )
             <?php $data = json_decode($blog->gambar); ?>
             <div class="card animate__animated animate__slideInUp">
-            <a href="@if (!empty($pages) == 1) /{{$pages->username}}/blog/{{$blog -> id}} @else /blog/{{$blog -> id}} @endif">
+            <a href="/blog/{{$blog -> id}}">
                 @if(!empty($data))
                 <img class="card-img-top" src="/images/upload/{{last($data)}}" alt="Card image cap">
                 @else

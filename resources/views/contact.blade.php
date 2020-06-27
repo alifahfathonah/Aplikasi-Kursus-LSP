@@ -1,5 +1,5 @@
 @extends('master')
-@section('mytitle', 'Contact Us')
+@section('mytitle', 'Contact Us | Abu Properti')
 
 <div class="jumbotron jumbotron-fluid animate__animated animate__fadeIn" id="jb_contact">
     <div class="container text-center">

@@ -1,5 +1,5 @@
 @extends('master')
-@section('mytitle', 'Testimony')
+@section('mytitle', 'Testimony | Abu Properti')
 
 <section class="testimony " id="testimony">
     <div class="container">

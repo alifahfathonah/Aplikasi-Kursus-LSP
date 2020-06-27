@@ -112,23 +112,14 @@ class DocumentsController extends Controller
      */
     public function show(Document $document)
     {
-        //
-    }
-
-    public function show_detail(Document $document)
-    {
         $dataImage = json_decode($document->gambar);
         $dataVideo = json_decode($document->video);
 
-        // dump($dataVideo);die;
         return view('layouts.admin.documentation.showDocument')
             ->with(compact('dataImage'))
             ->with(compact('dataVideo'))
             ->with(compact('document'));
     }
-
-
-
 
     /**
      * Show the form for editing the specified resource.
@@ -215,7 +206,7 @@ class DocumentsController extends Controller
                 'judul' => $request->judul,
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
-        return redirect('dashboard/admin/document/')->with('status', 'Your post has been updated successfullyh');
+        return redirect('dashboard/admin/document/')->with('status', 'Your post has been updated successfully');
     }
 
     /**
@@ -241,7 +232,7 @@ class DocumentsController extends Controller
         }
         Document::destroy($document->id);
 
-        return redirect('dashboard/admin/document')->with('status', 'Your post has been successfully deleted');
+        return redirect('dashboard/admin/document')->with('status', 'Your post has been deleted');
     }
 
     public function deleteImage(Request $request, Document $document)
@@ -279,7 +270,6 @@ class DocumentsController extends Controller
 
     public function deleteVideo(Request $request, Document $document)
     {
-        // $mydata = DB::table('blogs')->select('gambar')->where('id', $request->id)->get();
         $data = Document::select('video')->where('id', $request->id)->get();
         $myVideo =  json_decode($data[0]["video"], true);
         $video = $request->namafile;

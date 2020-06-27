@@ -1,5 +1,5 @@
 @extends('master')
-@section('mytitle', 'Home')
+@section('mytitle', 'Home | Abu Properti')
 <!-- Jumbotron -->
 <div class="jumbotron jumbotron-fluid animate__animated animate__fadeIn" id="jb_home">
     <div class="container"></div>

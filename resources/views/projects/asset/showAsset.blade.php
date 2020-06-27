@@ -1,5 +1,5 @@
 @extends('master')
-@section('mytitle', 'Asset')
+@section('mytitle', 'Asset | Abu Properti')
 
 <div class="swiper-container tipe">
     <!-- Additional required wrapper -->

@@ -1,12 +1,12 @@
 @extends('master')
-@section('mytitle', 'About us')
+@section('mytitle', 'About Us | Abu Properti')
 
 <div class="jumbotron jumbotron-fluid animate__animated animate__fadeIn" id="jb_about">
     <div class="container"></div>
 </div>
 <section class="about-us text-center" id="about-us">
     <div class="container">
-        <div class="row animate__animated animate__slideInUp" id="tentang">
+        <div class="row animate__animated animate__fadeIn" id="tentang">
             <div class="col-md-8 offset-md-2">
                 <h1>About Us</h1>
                 <p>
@@ -37,7 +37,7 @@
                 </p>
             </div>
         </div>
-        <div class="row animate__animated animate__slideInUp" id="fiqh">
+        <div class="row animate__animated animate__fadeIn" id="fiqh">
             <div class="col-md-8 offset-md-2">
                 <h1>Fiqh Muamalah</h1>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, voluptatibus nam suscipit iure totam sint error voluptatem laborum sunt atque omnis, incidunt id molestiae ullam aperiam sed autem at mollitia!
