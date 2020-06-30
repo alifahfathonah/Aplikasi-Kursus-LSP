@@ -235,4 +235,9 @@ class MyAdminController extends Controller
         User::destroy($myAdmin->id);
         return redirect('dashboard/admin/manage')->with('status', 'User data successfully deleted');
     }
+
+    public function AuthRouteAPI(Request $request)
+    {
+        return $request->user();
+    }
 }
