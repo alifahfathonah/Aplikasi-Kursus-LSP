@@ -7,7 +7,6 @@
         <div class="row">
             @auth
             <div class="col-md-6">
-                
                 <div class="card">
                     <div class="card-header text-center">Bagikan link anda</div>
                     <div class="card-body">

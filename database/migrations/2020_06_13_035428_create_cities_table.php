@@ -16,7 +16,7 @@ class CreateCitiesTable extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->string('kota');
-            $table->integer('provinsi_id');
+            $table->foreignId('provinsi_id');
         });
     }
 

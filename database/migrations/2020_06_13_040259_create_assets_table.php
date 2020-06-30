@@ -17,7 +17,7 @@ class CreateAssetsTable extends Migration
             $table->id();
             $table->string('judul');
             $table->longText('deskripsi');
-            $table->integer('tipe_id');
+            $table->foreignId('tipe_id')->references('id')->on('asset_types');
             $table->string('lokasi');
             $table->longText('gambar');
             $table->timestamps();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Message;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,12 +18,14 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $user_id = User::where('username', $request->user)->first()->id;
         $message = new Message();
         $message->nama = $request->inputName;
         $message->email = $request->inputEmail;
         $message->phone = $request->inputPhone;
         $message->pesan = $request->inputMessage;
-        $message->user = $request->user;
+        $message->user_id = $user_id;
         $message->created_at = date('Y-m-d H:i:s');
 
         $message->save();
@@ -39,8 +42,8 @@ class MessagesController extends Controller
     public function list()
     {
         $jabatan = Auth::user()->jabatan;
-        $username = Auth::user()->username;
-        $messages = Message::where('user', $username)->latest()->paginate(10);
+        $user_id = Auth::user()->id;
+        $messages = Message::where('user_id', $user_id)->latest()->paginate(10);
         $skipped = ($messages->currentPage() * $messages->perPage()) - $messages->perPage();
         if ($jabatan == 'admin') {
             return view('layouts.admin.message.listMessage', compact('messages', 'skipped'));
@@ -82,6 +85,5 @@ class MessagesController extends Controller
         } else {
             return redirect('dashboard/user/message')->with('status', 'The message has been deleted');
         }
-        
     }
 }

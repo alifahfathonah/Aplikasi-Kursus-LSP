@@ -29,17 +29,15 @@ class MyAdminController extends Controller
     {
 
         $user = Auth::user();
-        $count = User::all()->count();
-        $countMessages = Message::whereNull('read')->where('user', $user->username)->count();
+        $userCount = User::all()->count();
+        $countMessages = Message::whereNull('read')->where('user_id', $user->id)->count();
 
         if ($user->jabatan == 'admin') {
             return view('layouts.admin.dashboard.dashboard')
-                ->with(compact('user'))
-                ->with(compact('count'))
+                ->with(compact('userCount'))
                 ->with(compact('countMessages'));
         } else {
             return view('layouts.user.dashboard')
-                ->with(compact('user'))
                 ->with(compact('countMessages'));
         }
     }

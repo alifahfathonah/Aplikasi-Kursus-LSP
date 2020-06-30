@@ -9,7 +9,7 @@
                 <div class="card text-center">
                     <div class="card-header">Member yang terdaftar</div>
                     <div class="card-body">
-                        <h2><b>{{$count}}</b></h2>
+                        <h2><b>{{$userCount}}</b></h2>
                     </div>
                 </div>
             </div>

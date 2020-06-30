@@ -19,7 +19,7 @@ class CreateMessagesTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->longText('pesan');
-            $table->string('user');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->string('read')->nullable();
             $table->timestamps();
             $table->softDeletes();
