@@ -367,7 +367,7 @@ class AssetController extends Controller
             }
         }
 
-        return view('projects.asset.showAsset', compact('assets', 'pages', 'city', 'province', 'provinces', 'otherAssets'));
+        return view('projects.asset.showAsset', compact('assets', 'pages', 'city', 'province', 'otherAssets'));
     }
 
     /**
