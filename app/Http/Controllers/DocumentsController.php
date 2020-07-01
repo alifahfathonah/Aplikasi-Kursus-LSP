@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use File;
 use App\Pages;
 use App\Document;
+use App\User;
 use Illuminate\Http\Request;
 
 class DocumentsController extends Controller
@@ -16,13 +17,16 @@ class DocumentsController extends Controller
      */
     public function index(Pages $pages)
     {
+        $adminPages = '';
         if ($pages->exists == false) {
             $pages = '';
+            $adminPages = User::where('username', 'admin')->first();
         }
         
         $documents = Document::latest()->paginate(9);
         return view('documentation')
             ->with(compact('documents'))
+            ->with(compact('adminPages'))
             ->with(compact('pages'));
     }
 

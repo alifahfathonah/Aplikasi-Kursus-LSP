@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use File;
 use App\Blog;
+use App\User;
 use Illuminate\Http\Request;
 use App\Pages;
 
@@ -16,13 +17,16 @@ class BlogsController extends Controller
      */
     public function index(Pages $pages)
     {
+        $adminPages = '';
         if ($pages->exists == false) {
             $pages = '';
+            $adminPages = User::where('username', 'admin')->first();
         }
 
         $blogs = Blog::latest()->paginate(6);
         return view('blog.index')
             ->with(compact('blogs'))
+            ->with(compact('adminPages'))
             ->with(compact('pages'));
     }
 
@@ -94,11 +98,14 @@ class BlogsController extends Controller
      */
     public function show(Blog $blog , Pages $pages)
     {
+        $adminPages = '';
         if ($pages->exists == false) {
             $pages = '';
+            $adminPages = User::where('username', 'admin')->first();
         }
 
         return view('blog.content')
+            ->with(compact('adminPages'))
             ->with(compact('blog'))
             ->with(compact('pages'));
     }

@@ -7,6 +7,7 @@ use App\Asset;
 use App\Province;
 use App\City;
 use App\AssetType;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use File;
@@ -24,8 +25,10 @@ class AssetController extends Controller
 
     public function index(Pages $pages)
     {
+        $adminPages = '';
         if ($pages->exists == false) {
             $pages = '';
+            $adminPages = User::where('username', 'admin')->first();
         }
 
         $assets = DB::table('assets')
@@ -37,6 +40,7 @@ class AssetController extends Controller
         $cities = City::orderBy('kota', 'asc')->get();
 
         return view('projects.asset.index')
+            ->with(compact('adminPages'))
             ->with(compact('pages'))
             ->with(compact('asset_types'))
             ->with(compact('provinces'))
@@ -175,8 +179,10 @@ class AssetController extends Controller
 
     public function filter(Request $request, Pages $pages)
     {
+        $adminPages = '';
         if ($pages->exists == false) {
             $pages = '';
+            $adminPages = User::where('username', 'admin')->first();
         }
 
         $provinces = Province::orderBy('provinsi', 'asc')->get();
@@ -203,7 +209,7 @@ class AssetController extends Controller
                         ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
                         ->select('assets.*', 'asset_types.tipe')
                         ->latest()->paginate(9);
-                    return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces'));
+                    return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces', 'adminPages'));
                 }
                 //Tipe asset terisi
                 elseif ($request->tipe != 'Select Asset Type') {
@@ -213,7 +219,7 @@ class AssetController extends Controller
                         ->select('assets.*', 'asset_types.tipe')
                         ->latest()->paginate(9);
 
-                    return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces'));
+                    return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces', 'adminPages'));
                 }
             }
             //City terisi
@@ -225,7 +231,7 @@ class AssetController extends Controller
                         ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
                         ->select('assets.*', 'asset_types.tipe')
                         ->latest()->paginate(9);
-                    return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces'));
+                    return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces', 'adminPages'));
                 }
                 //Tipe asset terisi
                 elseif ($request->tipe != 'Select Asset Type') {
@@ -235,7 +241,7 @@ class AssetController extends Controller
                         ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
                         ->select('assets.*', 'asset_types.tipe')
                         ->latest()->paginate(9);
-                    return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces'));
+                    return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces', 'adminPages'));
                 }
             }
         } elseif ($request->province != "Select Province") {
@@ -245,7 +251,7 @@ class AssetController extends Controller
                     ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
                     ->select('assets.*', 'asset_types.tipe')
                     ->latest()->paginate(9);
-                return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces'));
+                return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces', 'adminPages'));
             }
             //Tipe asset terisi
             elseif ($request->tipe != 'Select Asset Type') {
@@ -255,7 +261,7 @@ class AssetController extends Controller
                     ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
                     ->select('assets.*', 'asset_types.tipe')
                     ->latest()->paginate(9);
-                return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces'));
+                return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces', 'adminPages'));
             }
         }
     }
@@ -336,8 +342,10 @@ class AssetController extends Controller
      */
     public function show(Asset $asset, Pages $pages)
     {
+        $adminPages = '';
         if ($pages->exists == false) {
             $pages = '';
+            $adminPages = User::where('username', 'admin')->first();
         }
 
         $assets = DB::table('assets')
@@ -367,7 +375,7 @@ class AssetController extends Controller
             }
         }
 
-        return view('projects.asset.showAsset', compact('assets', 'pages', 'city', 'province', 'otherAssets'));
+        return view('projects.asset.showAsset', compact('assets', 'pages', 'city', 'province', 'otherAssets', 'adminPages'));
     }
 
     /**

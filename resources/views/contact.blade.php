@@ -24,7 +24,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12" id="contact_picture">
-                        <img src="@if (!empty($pages -> photo)) /images/upload/profile/{{$pages->photo}} @else /images/default_user.png @endif" alt="image">
+                        <img src="@if (!empty($pages -> photo)) /images/upload/profile/{{$pages->photo}} @elseif (!empty($adminPages->photo)) /images/upload/profile/{{$adminPages->photo}} @else /images/default_user.png @endif" alt="image">
                     </div>
                 </div>
                 <div class="row">
@@ -35,9 +35,9 @@
                             <br>
                             {{$pages->email}}
                             @else
-                            021-88888888
+                            {{$adminPages->telp}}
                             <br>
-                            info@website.com
+                            {{$adminPages->email}}
                             @endif
                         </p>
                     </div>
@@ -48,16 +48,16 @@
                             @if(!empty($pages))
                             {{$pages->alamat}}
                             @else
-                            Jl. Kampung Lorem, Jakarta, 13303
+                            {{$adminPages->alamat}}
                             @endif
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12" id="isi_contact_icon">
-                        <a href="@if (!empty($social)) https://www.facebook.com/{{$social->facebook}} @else https://www.facebook.com/abuproperti @endif"><i class="lab la-facebook la-3x animate__animated animate__tada animate__delay-3s" id="contact_fb"></i></a>
-                        <a href="@if (!empty($pages)) https://web.whatsapp.com/send?phone={{$pages->telp}} @else https://web.whatsapp.com/send?phone=02186607465 @endif"><i class="la la-whatsapp la-3x animate__animated animate__tada animate__delay-3s" id="contact_wa"></i></a>
-                        <a href="@if (!empty($social)) https://www.instagram.com/{{$social->instagram}} @else https://www.instagram.com/abuproperti @endif "><i class="la la-instagram la-3x animate__animated animate__tada animate__delay-3s" id="contact_ig"></i></a>
+                        <a href="@if (!empty($social) && !empty($social->facebook)) https://www.facebook.com/{{$social->facebook}} @else https://www.facebook.com/abuproperti @endif"><i class="lab la-facebook la-3x animate__animated animate__tada animate__delay-3s" id="contact_fb"></i></a>
+                        <a href="@if (!empty($pages)) https://web.whatsapp.com/send?phone={{$pages->telp}} @else https://web.whatsapp.com/send?phone={{$adminPages->telp}} @endif"><i class="la la-whatsapp la-3x animate__animated animate__tada animate__delay-3s" id="contact_wa"></i></a>
+                        <a href="@if (!empty($social) && !empty($social->instagram)) https://www.instagram.com/{{$social->instagram}} @else https://www.instagram.com/abuproperti @endif "><i class="la la-instagram la-3x animate__animated animate__tada animate__delay-3s" id="contact_ig"></i></a>
                     </div>
                 </div>
                 <a href="https://www.google.com/maps/place/National+Monument/@-6.1753871,106.8249641,17z/data=!3m1!4b1!4m5!3m4!1s0x2e69f5d2e764b12d:0x3d2ad6e1e0e9bcc8!8m2!3d-6.1753924!4d106.8271528?shorturl=1" class="btn btn_saya">Direction</a>

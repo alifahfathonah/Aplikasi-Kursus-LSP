@@ -56,7 +56,7 @@
                             @if(!empty($pages))
                             {{$pages->telp}}
                             @else
-                            0896-1545-6118
+                            {{$adminPages->telp}}
                             @endif
                         </p>
                     </div>
@@ -66,7 +66,7 @@
                             @if(!empty($pages))
                             {{$pages->telp}}
                             @else
-                            0896-1545-6118
+                            {{$adminPages->telp}}
                             @endif
                         </p>
                     </div>
@@ -76,7 +76,7 @@
                             @if(!empty($pages))
                             {{$pages->email}}
                             @else
-                            abuproperti@gmail.com
+                            {{$adminPages->email}}
                             @endif
                         </p>
                     </div>
@@ -95,17 +95,17 @@
         <section id="contactfloat">
             <div class="row">
                 <div class="col">
-                    <a href="@if (!empty($pages) == 1) tel:{{$pages->telp}} @else tel:089615456118 @endif" ><i class="las la-phone la-2x animate__animated animate__jello" style="color: white; background-color: rgb(30, 136, 229); border-radius:40px; filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.25)); padding: 10px" id="float_telp"></i></a>
+                    <a href="@if (!empty($pages) == 1) tel:{{$pages->telp}} @else tel:{{$adminPages->telp}} @endif" ><i class="las la-phone la-2x animate__animated animate__jello" style="color: white; background-color: rgb(30, 136, 229); border-radius:40px; filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.25)); padding: 10px" id="float_telp"></i></a>
                 </div>
             </div>
             <div class="row" style="margin-top: 5px">
                 <div class="col">
-                    <a href="@if (!empty($pages) == 1) https://api.whatsapp.com/send?phone={{$pages->telp}}&text= @else https://api.whatsapp.com/send?phone=089615456118&text= @endif "><i class="lab la-whatsapp la-2x animate__animated animate__jello" style="color: white; background-color: rgb(102, 187, 106); border-radius:40px; filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.25)); padding: 10px " id="float_whatsapp"></i></a>
+                    <a href="@if (!empty($pages) == 1) https://api.whatsapp.com/send?phone={{$pages->telp}}&text= @else https://api.whatsapp.com/send?phone={{$adminPages->telp}}&text= @endif "><i class="lab la-whatsapp la-2x animate__animated animate__jello" style="color: white; background-color: rgb(102, 187, 106); border-radius:40px; filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.25)); padding: 10px " id="float_whatsapp"></i></a>
                 </div>
             </div>
             <div class="row" style="margin-top: 5px">
                 <div class="col">
-                    <a href="@if (!empty($pages) == 1) mailto:{{$pages->email}} @else mailto:abuproperti@gmail.com @endif "><i class="la la-envelope la-2x animate__animated animate__jello" style="color: white; background-color: rgb(244, 67, 54); border-radius:40px; filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.25)); padding: 10px;" id="float_email"></i></a>
+                    <a href="@if (!empty($pages) == 1) mailto:{{$pages->email}} @else mailto:{{$adminPages->email}} @endif "><i class="la la-envelope la-2x animate__animated animate__jello" style="color: white; background-color: rgb(244, 67, 54); border-radius:40px; filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.25)); padding: 10px;" id="float_email"></i></a>
                 </div>
             </div>
         </section>
