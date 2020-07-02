@@ -13,6 +13,6 @@ class City extends Model
 
     public function asset()
     {
-        return $this->hasMany('App\Asset', 'kota', 'id');
+        return $this->hasMany('App\Asset', 'kota_id', 'id');
     }
 }

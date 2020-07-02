@@ -15,10 +15,11 @@ class CreateAssetsTable extends Migration
     {
         Schema::create('assets', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tipe_id')->references('id')->on('asset_types');
+            $table->foreignId('kota_id')->references('id')->on('cities');
+            $table->foreignId('pembuat_id')->references('id')->on('users');
             $table->string('judul');
             $table->longText('deskripsi');
-            $table->foreignId('tipe_id')->references('id')->on('asset_types');
-            $table->foreignId('kota')->references('id')->on('cities');
             $table->longText('gambar');
             $table->timestamps();
         });

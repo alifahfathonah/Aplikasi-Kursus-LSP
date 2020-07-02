@@ -7,6 +7,7 @@ use App\Blog;
 use App\User;
 use Illuminate\Http\Request;
 use App\Pages;
+use Illuminate\Support\Facades\Auth;
 
 class BlogsController extends Controller
 {
@@ -62,7 +63,7 @@ class BlogsController extends Controller
      */
     public function store(Request $request)
     {
-        // dump($request);die;
+        
 
         $request->validate([
             'judul' => 'required',
@@ -70,6 +71,7 @@ class BlogsController extends Controller
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 
+        $idUser = Auth::user()->id;
         $blog = new Blog();
         $blog->gambar = '';
         if ($request->hasfile('image')) {
@@ -81,7 +83,7 @@ class BlogsController extends Controller
             }
             $blog->gambar = json_encode($data);
         }
-
+        $blog->pembuat_id = $idUser;
         $blog->judul = $request->judul;
         $blog->konten = $request->konten;
         $blog->created_at = date('Y-m-d H:i:s');

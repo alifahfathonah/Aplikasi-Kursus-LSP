@@ -14,6 +14,7 @@ use File;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
 
 class AssetController extends Controller
 {
@@ -33,7 +34,7 @@ class AssetController extends Controller
 
         $assets = DB::table('assets')
             ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-            ->join('cities', 'assets.kota', '=', 'cities.id')
+            ->join('cities', 'assets.kota_id', '=', 'cities.id')
             ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
             ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
             ->latest()->paginate(9);
@@ -71,7 +72,7 @@ class AssetController extends Controller
                 if ($request->tipe == 'Select Asset Type') {
                     $assets = DB::table('assets')
                         ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-                        ->join('cities', 'assets.kota', '=', 'cities.id')
+                        ->join('cities', 'assets.kota_id', '=', 'cities.id')
                         ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
                         ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
                         ->latest()->paginate(9);
@@ -81,7 +82,7 @@ class AssetController extends Controller
                 elseif ($request->tipe != 'Select Asset Type') {
                     $assets = DB::table('assets')
                         ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-                        ->join('cities', 'assets.kota', '=', 'cities.id')
+                        ->join('cities', 'assets.kota_id', '=', 'cities.id')
                         ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
                         ->where('assets.tipe_id', '=', $request->tipe)
                         ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
@@ -96,9 +97,9 @@ class AssetController extends Controller
                 if ($request->tipe == 'Select Asset Type') {
                     $assets = DB::table('assets')
                         ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-                        ->join('cities', 'assets.kota', '=', 'cities.id')
+                        ->join('cities', 'assets.kota_id', '=', 'cities.id')
                         ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
-                        ->where('assets.kota', '=', $request->city)
+                        ->where('assets.kota_id', '=', $request->city)
                         ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
                         ->latest()->paginate(9);
                     return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces', 'adminPages'));
@@ -107,9 +108,9 @@ class AssetController extends Controller
                 elseif ($request->tipe != 'Select Asset Type') {
                     $assets = DB::table('assets')
                         ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-                        ->join('cities', 'assets.kota', '=', 'cities.id')
+                        ->join('cities', 'assets.kota_id', '=', 'cities.id')
                         ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
-                        ->where('assets.kota', '=', $request->city)
+                        ->where('assets.kota_id', '=', $request->city)
                         ->where('assets.tipe_id', '=', $request->tipe)
                         ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
                         ->latest()->paginate(9);
@@ -124,9 +125,9 @@ class AssetController extends Controller
             if ($request->tipe == 'Select Asset Type') {
                 $assets = DB::table('assets')
                     ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-                    ->join('cities', 'assets.kota', '=', 'cities.id')
+                    ->join('cities', 'assets.kota_id', '=', 'cities.id')
                     ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
-                    ->where('assets.kota', '=', $request->city)
+                    ->where('assets.kota_id', '=', $request->city)
                     ->where('cities.provinsi_id', '=', $request->province)
                     ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
                     ->latest()->paginate(9);
@@ -136,9 +137,9 @@ class AssetController extends Controller
             elseif ($request->tipe != 'Select Asset Type') {
                 $assets = DB::table('assets')
                     ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-                    ->join('cities', 'assets.kota', '=', 'cities.id')
+                    ->join('cities', 'assets.kota_id', '=', 'cities.id')
                     ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
-                    ->where('assets.kota', '=', $request->city)
+                    ->where('assets.kota_id', '=', $request->city)
                     ->where('cities.provinsi_id', '=', $request->province)
                     ->where('assets.tipe_id', '=', $request->tipe)
                     ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
@@ -153,7 +154,7 @@ class AssetController extends Controller
     {
         $assets = DB::table('assets')
             ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-            ->join('cities', 'assets.kota', '=', 'cities.id')
+            ->join('cities', 'assets.kota_id', '=', 'cities.id')
             ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
             ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
             ->paginate(10);
@@ -172,7 +173,7 @@ class AssetController extends Controller
 
         $assets = DB::table('assets')
             ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-            ->join('cities', 'assets.kota', '=', 'cities.id')
+            ->join('cities', 'assets.kota_id', '=', 'cities.id')
             ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
             ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi', 'provinces.id as provinsiId')
             ->get();
@@ -273,6 +274,8 @@ class AssetController extends Controller
             'kota' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ]);
+
+        $idUser = Auth::user()->id;
         $asset = new Asset();
         $asset->gambar = '';
         if ($request->hasfile('image')) {
@@ -286,7 +289,8 @@ class AssetController extends Controller
         $asset->judul = $request->judul;
         $asset->deskripsi = $request->deskripsi;
         $asset->tipe_id = $request->tipe;
-        $asset->kota = $request->kota;
+        $asset->kota_id = $request->kota;
+        $asset->pembuat_id = $idUser;
         $asset->created_at = date('Y-m-d H:i:s');
         $asset->save();
 
@@ -298,7 +302,7 @@ class AssetController extends Controller
         $asset = DB::table('assets')
             ->where('assets.id', '=', $asset->id)
             ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-            ->join('cities', 'assets.kota', '=', 'cities.id')
+            ->join('cities', 'assets.kota_id', '=', 'cities.id')
             ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
             ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
             ->first();
@@ -323,7 +327,7 @@ class AssetController extends Controller
 
         $assets = DB::table('assets')
             ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-            ->join('cities', 'assets.kota', '=', 'cities.id')
+            ->join('cities', 'assets.kota_id', '=', 'cities.id')
             ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
             ->where('assets.id', '=', $asset->id)
             ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi', 'cities.provinsi_id as provinsiId')
@@ -333,7 +337,7 @@ class AssetController extends Controller
 
         $otherAssets = DB::table('assets')
             ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-            ->join('cities', 'assets.kota', '=', 'cities.id')
+            ->join('cities', 'assets.kota_id', '=', 'cities.id')
             ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
             ->where('cities.provinsi_id', '=', $assetProvinceId)
             ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
@@ -353,7 +357,7 @@ class AssetController extends Controller
         $asset = DB::table('assets')
             ->where('assets.id', '=', $asset->id)
             ->join('asset_types', 'assets.tipe_id', '=', 'asset_types.id')
-            ->join('cities', 'assets.kota', '=', 'cities.id')
+            ->join('cities', 'assets.kota_id', '=', 'cities.id')
             ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
             ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi', 'provinces.id as provinsiId')
             ->first();
@@ -403,7 +407,7 @@ class AssetController extends Controller
                     'judul' => $request->judul,
                     'deskripsi' => $request->deskripsi,
                     'tipe_id' => $request->tipe,
-                    'kota' => $request->kota,
+                    'kota_id' => $request->kota,
                     'gambar' => json_encode($myArray),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ]);
@@ -416,7 +420,7 @@ class AssetController extends Controller
                 'judul' => $request->judul,
                 'deskripsi' => $request->deskripsi,
                 'tipe_id' => $request->tipe,
-                'kota' => $request->kota,
+                'kota_id' => $request->kota,
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
         return redirect('dashboard/admin/asset/')->with('status', 'Your post has been updated successfully');

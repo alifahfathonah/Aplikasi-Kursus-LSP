@@ -41,4 +41,16 @@ class User extends Authenticatable
     public function messages(){
         return $this->hasMany('App\Message', 'user_id', 'id');
     }
+
+    public function assets(){
+        return $this->hasMany('App\Asset', 'pembuat_id', 'id');
+    }
+
+    public function blogs(){
+        return $this->hasMany('App\Blog', 'pembuat_id', 'id');
+    }
+
+    public function documents(){
+        return $this->hasMany('App\Document', 'pembuat_id', 'id');
+    }
 }

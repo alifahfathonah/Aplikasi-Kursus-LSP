@@ -7,6 +7,7 @@ use App\Pages;
 use App\Document;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DocumentsController extends Controller
 {
@@ -68,14 +69,13 @@ class DocumentsController extends Controller
             'file.*' => 'mimes:jpeg,png,jpg,gif,svg,mp4,3gp,mkv|required',
         ]);
 
+        $idUser = Auth::user()->id;
         $document = new Document();
         $document->gambar = '';
         $document->video = '';
 
-
         $image_extensions = array('jpg', 'png', 'jpeg', 'gif', 'svg');
         $video_extensions = array('mp4', '3gp', 'mkv');
-
 
         if ($request->hasfile('file')) {
 
@@ -100,7 +100,7 @@ class DocumentsController extends Controller
                 $document->video = json_encode($dataVideo);
             }
         }
-
+        $document->pembuat_id = $idUser;
         $document->judul = $request->judul;
         $document->created_at = date('Y-m-d H:i:s');
         $document->save();

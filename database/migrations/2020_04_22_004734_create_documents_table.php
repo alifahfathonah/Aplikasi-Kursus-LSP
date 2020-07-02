@@ -15,6 +15,7 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('pembuat_id')->references('id')->on('users');
             $table->string('judul');
             $table->longText('gambar')->nullable();
             $table->longText('video')->nullable();
