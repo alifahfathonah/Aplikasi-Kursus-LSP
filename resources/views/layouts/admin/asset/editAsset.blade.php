@@ -52,7 +52,7 @@
                     <select name="provinsi" class="selectpicker form-control" data-live-search="true" id="provinsi">
                         <option selected="false">Pilih Provinsi</option>
                         @foreach ($provinces as $province)
-                        @if($province -> id == $provinsi -> id)
+                        @if($province -> provinsi == $asset -> namaProvinsi)
                         <option selected="true" value="{{$province->id}}">{{$province->provinsi}}</option>
                         @else
                         <option value="{{$province->id}}">{{$province->provinsi}}</option>
@@ -65,8 +65,8 @@
                     <select name="kota" class="selectpicker form-control" data-live-search="true" id="kota">
                         <option selected="false">Pilih Kota</option>
                         @foreach ($cities as $city)
-                        @if($city -> provinsi_id == $provinsi -> id)
-                        @if($city -> id == $kota -> id)
+                        @if($city -> provinsi_id == $asset -> provinsiId)
+                        @if($city -> kota == $asset -> namaKota)
                         <option selected="true" value="{{$city->id}}">{{$city->kota}}</option>
                         @else
                         <option value="{{$city->id}}">{{$city->kota}}</option>

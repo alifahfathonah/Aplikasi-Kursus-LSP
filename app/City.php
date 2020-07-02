@@ -10,4 +10,9 @@ class City extends Model
     {
         return $this->belongsTo('App\Province');
     }
+
+    public function asset()
+    {
+        return $this->hasMany('App\Asset', 'kota', 'id');
+    }
 }

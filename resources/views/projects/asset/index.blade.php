@@ -48,16 +48,7 @@
             <h1 style="text-align: center;">Whoops, looks like assets don't exist</h1>
             @else
             @foreach ($assets as $asset)
-            <?php
-            $dataImage = json_decode($asset->gambar);
-            $kota = '';
-            $lokasi = explode(',', $asset->lokasi);
-            foreach ($cities as $city) {
-                if ($lokasi[0] == $city->id) {
-                    $kota = $city->kota;
-                }
-            }
-            ?>
+            <?php $dataImage = json_decode($asset->gambar); ?>
             <div class="card animate__animated animate__fadeIn">
                 <a href="@if (!empty($pages) == 1) /{{$pages->username}}/asset/{{$asset -> id}} @else /asset/{{$asset -> id}} @endif">
                     <img class="card-img-top" @if(!empty($dataImage)) src="/images/upload/{{last($dataImage)}}" @else src="/images/noimage.png" @endif alt="Card image cap">
@@ -71,7 +62,7 @@
                         </h5></a> 
                         <div class="card-info">
                             <p><i class="card-text las la-chevron-circle-right la-1x"></i> {{$asset->tipe}}</p>
-                            <p><i class="card-text las la-map-marker la-1x"></i> {{$kota}}</p>
+                            <p><i class="card-text las la-map-marker la-1x"></i> {{$asset->namaKota}}</p>
                         </div>
                     </div>
             </div>

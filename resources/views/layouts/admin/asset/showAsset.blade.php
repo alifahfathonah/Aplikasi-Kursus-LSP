@@ -20,11 +20,11 @@
             </div>
             <div class="form-group">
                 <label for="provinsi">Provinsi</label>
-                <input class="form-control" type="text" placeholder="{{$provinsi}}" readonly>
+                <input class="form-control" type="text" placeholder="{{$asset -> namaProvinsi}}" readonly>
             </div>
             <div class="form-group">
                 <label for="kota">Kota</label>
-                <input class="form-control" type="text" placeholder="{{$kota}}" readonly>
+                <input class="form-control" type="text" placeholder="{{$asset -> namaKota}}" readonly>
             </div>
             <?php $gambar = json_decode($asset->gambar); ?>
             @if(!empty($gambar))

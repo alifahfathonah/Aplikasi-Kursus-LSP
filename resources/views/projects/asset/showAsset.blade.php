@@ -39,9 +39,9 @@
                                 ?>
                                 <p><b>Tipe: {{$assets->tipe}}
                                         <br>
-                                        Kota: {{$city}}
+                                        Kota: {{$assets->namaKota}}
                                         <br>
-                                        Provinsi: {{$province}}
+                                        Provinsi: {{$assets->namaProvinsi}}
                                     </b>
                                 </p>
                                 <div class="row" style="margin-top: 30px">
@@ -101,7 +101,7 @@
                         <h5 class="card-title">
                             @if(strlen($otherAssets[$i]->judul) <= 30) {{$otherAssets[$i] -> judul}} @else <?php echo substr($otherAssets[$i]->judul, 0, 60) . '...' ?> @endif </h5> </a> <div class="card-info">
                                 <p><i class="card-text las la-chevron-circle-right la-1x"></i> {{$otherAssets[$i]->tipe}}</p>
-                                <p><i class="card-text las la-map-marker la-1x"></i>{{$province}}</p>
+                                <p><i class="card-text las la-map-marker la-1x"></i>{{$otherAssets[$i]->namaKota}}</p>
                     </div>
         </div>
     </div>

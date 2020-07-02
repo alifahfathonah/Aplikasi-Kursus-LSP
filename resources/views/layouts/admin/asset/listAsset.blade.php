@@ -29,21 +29,6 @@
             </thead>
             <tbody>
                 @foreach ($assets as $key => $asset)
-                <?php
-                $kota = "";
-                $provinsi = "";
-                $lokasi = explode(",", $asset->lokasi);
-                foreach ($cities as $city) {
-                    if ($lokasi[0] == $city->id) {
-                        $kota = $city->kota;
-                    }
-                }
-                foreach ($provinces as $province) {
-                    if ($lokasi[1] == $province->id) {
-                        $provinsi = $province->provinsi;
-                    }
-                }
-                ?>
                 <tr>
                     <th scope="row">{{$assets -> firstItem() + $key }}</th>
                     <td>
@@ -53,8 +38,8 @@
                         <?php echo substr(($asset->judul), 0, 30). ' ...';?>
                         @endif
                     </td>
-                    <td>{{$provinsi}}</td>
-                    <td>{{$kota}}</td>
+                    <td>{{$asset->namaProvinsi}}</td>
+                    <td>{{$asset->namaKota}}</td>
                     <td>{{$asset->tipe}}</td>
                     <td class="text-center">
                         <a href="/dashboard/admin/asset/{{$asset->id}}"><i class="las la-pen-square la-2x"></i></a>
