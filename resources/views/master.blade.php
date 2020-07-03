@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/slick.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/swiper.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/slick-theme.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
 </head>
@@ -32,7 +32,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{{ url('/asset')}}">Asset</a>
-                            <a class="dropdown-item" href="{{ url('/jasa')}}">Jasa Konstruksi</a>
+                            <a class="dropdown-item" href="{{ url('/service')}}">Construction Services</a>
                         </div>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('/documentation')}}">Documentation</a></li>
@@ -44,6 +44,8 @@
         </div>
     </nav>
     <!-- Akhir Navbar -->
+
+    @yield('content')
 
 
     <footer>
@@ -112,9 +114,9 @@
     </footer>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="{{ asset('/js/slick.js') }}"></script>
-<script type="text/javascript" src="{{ asset('/js/swiper.js') }}"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script type="text/javascript">
     $(function() {
         $(document).scroll(function() {
@@ -124,18 +126,6 @@
     });
 
     $(document).ready(function() {
-        $('.your-class').slick({
-
-            infinite: true,
-            speed: 300,
-            slidesToShow: 1,
-            centerMode: true,
-            variableWidth: true,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 2000,
-        });
-
         $("select#province").change(function() {
             var selectedProvince = $("#province option:selected").val();
             var sel = document.getElementById('city')

@@ -1,6 +1,6 @@
 @extends('master')
-@section('mytitle', 'Jasa | Abu Properti')
-
+@section('mytitle', 'Construction Service | Abu Properti')
+@section('content')
 <div class="jumbotron jumbotron-fluid text-center animate__animated animate__fadeIn" id="jb_tipe" style="background: url('/images/konstruksi.jpg');">
   <div class="container">
   </div>
@@ -10,7 +10,7 @@
   <div class="container text-center">
     <div class="row">
       <div class="col-md-12">
-        <h1>Jasa</h1>
+        <h1>Construction Services</h1>
         <h5>Jasa Konstruksi Terpercaya </h5>
         <p>Selain menjual asset properti, kami juga menyediakan jasa konstruksi untuk membangun rumah anda. Orang-orang kami sangat terampil, handal, dan sudah bekerja dibanyak konstruksi bangunan</p>
       </div>
@@ -49,8 +49,10 @@
     </div>
   </div>
 </section>
+@endsection
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 
   $(function() {

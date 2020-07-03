@@ -1,9 +1,9 @@
 @extends('master')
 @section('mytitle', 'Documentation | Abu Properti')
-
+@section('content')
 <section class="documentation" id="documentation">
     <div class="container-fluid text-center">
-        <div class="row">
+        <div class="row animate__animated animate__fadeIn">
             <div class="col-md-12">
                 <h1>Documentation</h1>
             </div>
@@ -52,10 +52,11 @@
     </div>
 </div>
 </div>
+@endsection
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
+<script type="text/javascript">
     $(document).ready(function() {
         //initialize swiper when document ready
         var mySwiper = new Swiper('.swiper-container', {

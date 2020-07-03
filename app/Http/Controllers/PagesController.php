@@ -49,7 +49,7 @@ class PagesController extends Controller
             ->with(compact('social'));
     }
 
-    public function jasa(Pages $pages)
+    public function service(Pages $pages)
     {
         $adminPages = '';
         if ($pages->exists == false) {

@@ -19,7 +19,7 @@ Route::get('/', 'PagesController@home');
 Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact');
 Route::get('asset', 'AssetController@index');
-Route::get('jasa', 'PagesController@jasa');
+Route::get('service', 'PagesController@service');
 Route::get('testimony', 'PagesController@testimony');
 Route::get('documentation', 'DocumentsController@index');
 Route::get('blog', 'BlogsController@index');
@@ -103,7 +103,7 @@ Route::post('change-password', 'ChangePasswordController@store')->name('change.p
 Route::get('{pages}', 'PagesController@home');
 Route::get('about/{pages}', 'PagesController@about');
 Route::get('contact/{pages}', 'PagesController@contact');
-Route::get('jasa/{pages}', 'PagesController@jasa');
+Route::get('service/{pages}', 'PagesController@service');
 Route::get('testimony/{pages}', 'PagesController@testimony');
 Route::get('blog/{blog}/{pages}', 'BlogsController@show');
 Route::get('asset/{asset}/{pages}', 'AssetController@show');

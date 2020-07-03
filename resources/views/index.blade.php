@@ -1,5 +1,6 @@
 @extends('master')
 @section('mytitle', 'Home | Abu Properti')
+@section('content')
 <!-- Jumbotron -->
 <div class="jumbotron jumbotron-fluid animate__animated animate__fadeIn" id="jb_home">
     <div class="container"></div>
@@ -9,7 +10,7 @@
 <!-- About Us -->
 <section class="about" id="about">
     <div class="container">
-        <div class="row">
+        <div class="row animate__animated animate__fadeIn">
             <div class="col-md-8 offset-md-2">
                 <h1 class="text-center">About Us</h1>
                 <p class="text-center">Abu Properti merupakan Solusi Properti Impian anda. Kami menyediakan dan menjual berbagai macam aset properti dari segala kebutuhan, baik untuk hunian maupun Investasi.</p>
@@ -30,7 +31,7 @@
 <!-- Deskripsi hunian -->
 <section class="cluster" id="cluster">
     <div class="container">
-        <div class="row">
+        <div class="row animate__animated animate__fadeIn">
             <div class="col-md-8 offset-md-2">
                 <h1 class="text-center">Asset</h1>
                 <p class="text-center">Kami menyediakan berbagai aset yang sedang anda cari di berbagai daerah. Mulai dari lahan, kavling, cluster, dan masih banyak yang lagi.</p>
@@ -53,7 +54,7 @@
 
 <section class="news" id="news">
     <div class="container text-center">
-        <div class="row">
+        <div class="row animate__animated animate__fadeIn">
             <div class="col-md-12">
                 <h1>News & Update</h1>
             </div>
@@ -89,4 +90,5 @@
         </div>
     </div>
 </section>
+@endsection
 <!-- Akhir news -->

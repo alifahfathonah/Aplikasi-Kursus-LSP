@@ -1,5 +1,6 @@
 @extends('master')
 @section('mytitle', 'Asset | Abu Properti')
+@section('content')
 <div class="jumbotron jumbotron-fluid animate__animated animate__fadeIn" id="jb_aset" style="background: url('/images/asset.jpg');">
     <div class="container text-center">
         <div class="row">
@@ -78,3 +79,4 @@
         </div>
     </div>
 </section>
+@endsection

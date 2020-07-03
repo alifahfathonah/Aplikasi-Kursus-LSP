@@ -1,6 +1,6 @@
 @extends('master')
 @section('mytitle', 'About Us | Abu Properti')
-
+@section('content')
 <div class="jumbotron jumbotron-fluid animate__animated animate__fadeIn" id="jb_about">
     <div class="container"></div>
 </div>
@@ -47,7 +47,7 @@
                 </p>
             </div>
         </div>
-        <div class="row" id="keuntungan">
+        <div class="row animate__animated animate__fadeIn" id="keuntungan">
             <div class="col-md-12">
                 <h1>6 Keuntungan memilih <br>Abu Properti </h1>
             </div>
@@ -88,3 +88,4 @@
         </div>
     </div>
 </section>
+@endsection

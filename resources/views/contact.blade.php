@@ -1,10 +1,11 @@
 @extends('master')
 @section('mytitle', 'Contact Us | Abu Properti')
+@section('content')
 
 <div class="jumbotron jumbotron-fluid animate__animated animate__fadeIn" id="jb_contact">
     <div class="container text-center">
         <div class="row">
-            <div class="col-md-12" id="jb_contact_isi">
+            <div class="col-md-12 animate__animated animate__slideInDown" id="jb_contact_isi">
                 <h1>CONTACT US</h1>
                 <p>For more information, fill in your contact details and we’ll get back to you. </p>
             </div>
@@ -17,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-1" id="isi_contact_kiri">
-                <div class="row">
+                <div class="row animate__animated animate__fadeIn">
                     <div class="col-sm-12" id="isi_contact_judul">
                         <h4>Contact Us</h4>
                     </div>
@@ -27,7 +28,7 @@
                         <img src="@if (!empty($pages -> photo)) /images/upload/profile/{{$pages->photo}} @elseif (!empty($adminPages->photo)) /images/upload/profile/{{$adminPages->photo}} @else /images/default_user.png @endif" alt="image">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row animate__animated animate__fadeIn">
                     <div class="col-sm-12" id="isi_contact_hubungi">
                         <p>
                             @if(!empty($pages))
@@ -43,7 +44,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12" id="isi_contact_alamat">
+                    <div class="col-sm-12 animate__animated animate__fadeIn" id="isi_contact_alamat">
                         <p>
                             @if(!empty($pages))
                             {{$pages->alamat}}
@@ -99,3 +100,4 @@
         </iframe>
     </section>
 </section>
+@endsection

@@ -1,13 +1,13 @@
 @extends('master')
 @section('mytitle', 'News & Update | Abu Properti')
-
+@section('content')
 <div class="jumbotron jumbotron-fluid animate__animated animate__fadeIn" id="jb_blog">
     <div class="container"></div>
 </div>
 
 <section class="myblog" id="myblog" style="margin-bottom: 50px">
     <div class="container">
-        <div class="row text-center">
+        <div class="row text-center animate__animated animate__fadeIn">
             <div class="col-md-12">
                 <h1>News & Update</h1>
             </div>
@@ -54,3 +54,4 @@
         </div>
     </div>
 </section>
+@endsection
