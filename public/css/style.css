@@ -573,8 +573,6 @@ label {
 
 .news {
     margin: 40px 40px;
-    display: flex;
-    justify-content: center;
 }
 
 #all_news .card {
@@ -587,6 +585,8 @@ label {
 }
 
 #all_news {
+    display: flex;
+    justify-content: center;
     margin-top: 30px;
     text-align: left;
 }

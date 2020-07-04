@@ -1,7 +1,7 @@
 @extends('master')
 @section('mytitle', 'Asset | Abu Properti')
 @section('content')
-<div class="swiper-container tipe">
+<div class="swiper-container tipe animate__animated animate__fadeIn">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <!-- Slides -->
