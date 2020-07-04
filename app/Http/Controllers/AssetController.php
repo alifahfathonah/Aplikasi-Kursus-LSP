@@ -37,7 +37,8 @@ class AssetController extends Controller
             ->join('cities', 'assets.kota_id', '=', 'cities.id')
             ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
             ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
-            ->latest()->paginate(9);
+            ->orderBy('updated_at', 'desc')
+            ->paginate(9);
 
         $asset_types = AssetType::orderBy('tipe', 'asc')->get();
         $provinces = Province::orderBy('provinsi', 'asc')->get();
@@ -75,7 +76,7 @@ class AssetController extends Controller
                         ->join('cities', 'assets.kota_id', '=', 'cities.id')
                         ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
                         ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
-                        ->latest()->paginate(9);
+                        ->orderBy('updated_at', 'desc')->paginate(9);
                     return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces', 'adminPages'));
                 }
                 //Tipe asset terisi
@@ -86,7 +87,7 @@ class AssetController extends Controller
                         ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
                         ->where('assets.tipe_id', '=', $request->tipe)
                         ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
-                        ->latest()->paginate(9);
+                        ->orderBy('updated_at', 'desc')->paginate(9);
 
                     return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces', 'adminPages'));
                 }
@@ -101,7 +102,7 @@ class AssetController extends Controller
                         ->join('provinces', 'cities.provinsi_id', '=', 'provinces.id')
                         ->where('assets.kota_id', '=', $request->city)
                         ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
-                        ->latest()->paginate(9);
+                        ->orderBy('updated_at', 'desc')->paginate(9);
                     return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces', 'adminPages'));
                 }
                 //Tipe asset terisi
@@ -113,7 +114,7 @@ class AssetController extends Controller
                         ->where('assets.kota_id', '=', $request->city)
                         ->where('assets.tipe_id', '=', $request->tipe)
                         ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
-                        ->latest()->paginate(9);
+                        ->orderBy('updated_at', 'desc')->paginate(9);
 
                     return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces', 'adminPages'));
                 }
@@ -130,7 +131,7 @@ class AssetController extends Controller
                     ->where('assets.kota_id', '=', $request->city)
                     ->where('cities.provinsi_id', '=', $request->province)
                     ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
-                    ->latest()->paginate(9);
+                    ->orderBy('updated_at', 'desc')->paginate(9);
                 return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces', 'adminPages'));
             }
             //Tipe asset terisi
@@ -143,7 +144,7 @@ class AssetController extends Controller
                     ->where('cities.provinsi_id', '=', $request->province)
                     ->where('assets.tipe_id', '=', $request->tipe)
                     ->select('assets.*', 'asset_types.tipe', 'cities.kota as namaKota', 'provinces.provinsi as namaProvinsi')
-                    ->latest()->paginate(9);
+                    ->orderBy('updated_at', 'desc')->paginate(9);
 
                 return view('projects.asset.index', compact('assets', 'pages', 'cities', 'asset_types', 'provinces', 'adminPages'));
             }
@@ -292,6 +293,7 @@ class AssetController extends Controller
         $asset->kota_id = $request->kota;
         $asset->pembuat_id = $idUser;
         $asset->created_at = date('Y-m-d H:i:s');
+        $asset->updated_at = date('Y-m-d H:i:s');
         $asset->save();
 
         return redirect('dashboard/admin/asset')->with('status', 'Your post has been successfully posted');
