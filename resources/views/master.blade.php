@@ -20,7 +20,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top ">
         <div class="container">
-            <a class="navbar-brand animate__animated animate__fadeIn" href="{{url('/')}}">AbuProperti</a>
+        <a class="navbar-brand animate__animated animate__fadeIn" href="{{url('/')}}" style="font-weight: bold;"><img src="/images/logo.png" class="mb-2" width="40px" height="40px" alt=""> AbuProperti</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

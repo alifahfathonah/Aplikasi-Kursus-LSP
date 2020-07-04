@@ -3,7 +3,7 @@
 @section('content')
     <section class="testimony " id="testimony">
         <div class="container">
-            <div class="row text-center">
+            <div class="row text-center animate__animated animate__fadeIn">
                 <div class="col-md-12">
                     <h1>Abu Properti Customer <br> Testimonials</h1>
                 </div>

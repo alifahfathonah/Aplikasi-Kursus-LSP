@@ -1,7 +1,7 @@
 @extends('master')
 @section('mytitle', 'Asset | Abu Properti')
 @section('content')
-<div class="jumbotron jumbotron-fluid animate__animated animate__fadeIn" id="jb_aset" style="background: url('/images/asset.jpg');">
+<div class="jumbotron jumbotron-fluid animate__animated animate__fadeIn" id="jb_aset">
     <div class="container text-center">
         <div class="row">
             <div class="col-md-12" id="jb_contact_isi">
