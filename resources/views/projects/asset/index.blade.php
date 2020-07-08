@@ -10,7 +10,6 @@
             </div>
         </div>
         <section class="filter_aset" id="filter_aset">
-
             <div class="row">
                 <form action="/asset/filter" class="form-inline" method="POST">
                     @csrf
@@ -20,14 +19,12 @@
                         <option value="{{$province->id}}">{{$province->provinsi}}</option>
                         @endforeach
                     </select>
-
                     <select name="city" class="selectpicker form-control" data-live-search="true" id="city">
                         <option selected="false">Select City</option>
                         @foreach ($cities as $city)
                         <option value="{{$city->id}}">{{$city->kota}}</option>
                         @endforeach
                     </select>
-
                     <select name="tipe" class="selectpicker form-control" data-live-search="true" id="tipe">
                         <option selected="false">Select Asset Type</option>
                         @foreach ($asset_types as $asset_type)

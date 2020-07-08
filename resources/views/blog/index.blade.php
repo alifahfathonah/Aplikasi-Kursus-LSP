@@ -16,7 +16,7 @@
             @foreach($blogs as $blog )
             <?php $data = json_decode($blog->gambar); ?>
             <div class="card animate__animated animate__slideInUp">
-            <a href="/blog/{{$blog -> id}}">
+            <a href="@if (!empty($pages) == 1) /{{$pages->username}}/blog/{{$blog -> id}} @else /blog/{{$blog -> id}} @endif">
                 @if(!empty($data))
                 <img class="card-img-top" src="/images/upload/{{last($data)}}" alt="Card image cap">
                 @else

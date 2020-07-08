@@ -18,10 +18,10 @@
         </div>
         <div class="row text-center">
             <div class="col-md-4 offset-md-2" id="btn_about">
-                <a href="{{url('/about')}}" class="btn btn-lg btn_saya">About Us</a>
+                <a href="@if (!empty($pages) == 1) /{{$pages->username}}/about @else {{url('/about')}} @endif" class="btn btn-lg btn_saya">About Us</a>
             </div>
             <div class="col-md-4" id="btn_contact">
-                <a href="{{url('/contact')}}" class="btn btn-lg btn_saya">Contact Us</a>
+                <a href="{@if (!empty($pages) == 1) /{{$pages->username}}/contact @else {{url('/contact')}} @endif" class="btn btn-lg btn_saya">Contact Us</a>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
             </div>
             <div class="col-md-8" id="img_cluster2">
                 <img src="/images/asset1.jpg" class="img-fluid" alt="Responsive image">
-                <a href="{{url('asset')}}" class="btn btn-lg btn_saya">View All</a>
+                <a href="@if (!empty($pages) == 1) /{{$pages->username}}/asset @else {{url('/asset')}} @endif" class="btn btn-lg btn_saya">View All</a>
             </div>
         </div>
     </div>
@@ -86,7 +86,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="{{url('/blog')}}" class="btn btn-lg btn_saya">Show more</a>
+            <a href="@if (!empty($pages) == 1) /{{$pages->username}}/blog @else {{url('/blog')}} @endif" class="btn btn-lg btn_saya">Show more</a>
         </div>
     </div>
 </section>

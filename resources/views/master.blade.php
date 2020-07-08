@@ -26,19 +26,19 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto disabled">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/')}}">Home <span class="sr-only">(current)</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/about')}}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@if (!empty($pages) == 1) /{{$pages->username}}/about @else {{ url('/about')}} @endif">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="@if (!empty($pages) == 1) /{{$pages->username}}/about @else {{ url('/about')}} @endif">About</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{{ url('/asset')}}">Asset</a>
-                            <a class="dropdown-item" href="{{ url('/service')}}">Construction Services</a>
+                            <a class="dropdown-item" href="@if (!empty($pages) == 1) /{{$pages->username}}/asset @else {{ url('/asset')}} @endif">Asset</a>
+                            <a class="dropdown-item" href="@if (!empty($pages) == 1) /{{$pages->username}}/service @else {{ url('/service')}} @endif">Construction Services</a>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/documentation')}}">Documentation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/blog')}}">News & Updates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/contact')}}">Contacts & Location</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/testimony')}}">Testimony</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@if (!empty($pages) == 1) /{{$pages->username}}/documentation @else {{ url('/documentation')}} @endif">Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@if (!empty($pages) == 1) /{{$pages->username}}/blog @else {{ url('/blog')}} @endif">News & Updates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@if (!empty($pages) == 1) /{{$pages->username}}/contact @else {{ url('/contact')}} @endif">Contacts & Location</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@if (!empty($pages) == 1) /{{$pages->username}}/testimony @else {{ url('/testimony')}} @endif">Testimony</a></li>
                 </ul>
             </div>
         </div>
@@ -114,7 +114,7 @@
                         <h2>ABU PROPERTI</h2>
                         <p>Jl. Kampung Sumur, Jakarta, 13470
                             <br>
-                            <sub>Copyright @2020. Abu Properti. All Right Reserved.</sub>
+                            <sub>Copyright @2020. Abu Properti.</sub>
                             <br>
                             <!-- <sub>All Right Reserved.</sub> -->
                         </p>
