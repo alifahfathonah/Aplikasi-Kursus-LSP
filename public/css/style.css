@@ -300,6 +300,24 @@ li.nav-item a.dropdown-item:focus {
     background-color: white;
 }
 
+#footer_picture {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: 20px 0px;
+}
+
+#footer_nama {
+    text-align: center;
+    font-size: 24px;
+}
+
+#footer_alamat {
+    margin-top: -10px;
+    text-align: center;
+    font-size: 18px;
+}
+
 
 /* ALL */
 
@@ -1040,15 +1058,37 @@ label {
         z-index: 1;
         position: relative;
     }
+    #jb_tipe {
+        height: 1000px;
+    }
     .swiper-container {
         width: 100%;
         height: 600px;
     }
-    #jb_tipe {
-        height: 1000px;
-    }
     .tipe {
         height: 1000px !important;
+    }
+    #footer_picture {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        margin-top: -20px;
+        margin-bottom: 20px;
+        margin-left: 30px;
+        text-align: right !important;
+    }
+    #footer_nama {
+        margin-top: 15px;
+        text-align: left;
+        font-size: 24px;
+    }
+    #footer_alamat {
+        margin-top: -20px;
+        text-align: left;
+        font-size: 16px;
+    }
+    #footer_contact {
+        margin-top: 30px;
     }
     /* Cluster */
     .cluster .container {

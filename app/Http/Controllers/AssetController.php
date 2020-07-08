@@ -319,7 +319,7 @@ class AssetController extends Controller
      * @param  \App\Asset  $asset
      * @return \Illuminate\Http\Response
      */
-    public function show(Asset $asset, Pages $pages)
+    public function show(Pages $pages, Asset $asset)
     {
         $adminPages = '';
         if ($pages->exists == false) {

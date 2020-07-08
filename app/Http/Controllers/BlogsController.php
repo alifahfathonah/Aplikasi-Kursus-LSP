@@ -64,7 +64,6 @@ class BlogsController extends Controller
     public function store(Request $request)
     {
         
-
         $request->validate([
             'judul' => 'required',
             'konten' => 'required',
@@ -98,7 +97,7 @@ class BlogsController extends Controller
      * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog , Pages $pages)
+    public function show(Pages $pages, Blog $blog)
     {
         $adminPages = '';
         if ($pages->exists == false) {

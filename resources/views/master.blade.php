@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/slick-theme.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
 </head>
 
@@ -20,7 +20,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top ">
         <div class="container">
-        <a class="navbar-brand animate__animated animate__fadeIn" href="{{url('/')}}" style="font-weight: bold;"><img src="/images/logo.png" class="mb-2" width="40px" height="40px" alt=""> AbuProperti</a>
+            <a class="navbar-brand animate__animated animate__fadeIn" href="{{url('/')}}" style="font-weight: bold;"><img src="/images/logo.png" class="mb-2" width="40px" height="40px" alt=""> AbuProperti</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -49,11 +49,36 @@
 
 
     <footer>
-        <section class="myfooter text-center">
+        <section class="myfooter">
             <div class="container">
                 <div class="row">
+                    <div class="col-md-2 offset-md-4 text-center">
+                        <img id="footer_picture" src="@if (!empty($pages -> photo)) /images/upload/profile/{{$pages->photo}} @elseif (!empty($adminPages->photo)) /images/upload/profile/{{$adminPages->photo}} @else /images/default_user.png @endif" alt="Contact Picture">
+                    </div>
+                    <div class="col-md-6" id="footer_identity">
+                        <p id="footer_nama"><b>
+                                @if(!empty($pages))
+                                {{$pages->nama}}
+                                @else
+                                {{$adminPages->nama}}
+                                @endif
+                            </b>
+                        </p>
+                        <p id="footer_alamat">
+                            <b>
+                                @if(!empty($pages))
+                                {{$pages->alamat}}
+                                @else
+                                {{$adminPages->alamat}}
+                                @endif
+                            </b>
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row text-center" id="footer_contact">
                     <div class="col-md-4">
-                        <i class="la la-whatsapp la-5x"></i>
+                        <i class="la la-whatsapp la-4x"></i>
                         <p>
                             @if(!empty($pages))
                             {{$pages->telp}}
@@ -63,7 +88,7 @@
                         </p>
                     </div>
                     <div class="col-md-4">
-                        <i class="la la-phone-volume la-5x"></i>
+                        <i class="la la-phone-volume la-4x"></i>
                         <p>
                             @if(!empty($pages))
                             {{$pages->telp}}
@@ -73,7 +98,7 @@
                         </p>
                     </div>
                     <div class="col-md-4">
-                        <i class="la la-envelope la-5x"></i>
+                        <i class="la la-envelope la-4x"></i>
                         <p>
                             @if(!empty($pages))
                             {{$pages->email}}
@@ -84,12 +109,15 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row">
+                <div class="row text-center">
                     <div class="col-md-12">
                         <h2>ABU PROPERTI</h2>
-                        <p>Jl. Kampung Sumur, Jakarta, 13470</p>
-                        <p><sub>Copyright @2020. Abu Properti. </sub></p>
-                        <p><sub>All Right Reserved.</sub></p>
+                        <p>Jl. Kampung Sumur, Jakarta, 13470
+                            <br>
+                            <sub>Copyright @2020. Abu Properti. All Right Reserved.</sub>
+                            <br>
+                            <!-- <sub>All Right Reserved.</sub> -->
+                        </p>
                     </div>
                 </div>
             </div>
@@ -97,7 +125,7 @@
         <section id="contactfloat">
             <div class="row">
                 <div class="col">
-                    <a href="@if (!empty($pages) == 1) tel:{{$pages->telp}} @else tel:{{$adminPages->telp}} @endif" ><i class="las la-phone la-2x animate__animated animate__jello" style="color: white; background-color: rgb(30, 136, 229); border-radius:40px; filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.25)); padding: 10px" id="float_telp"></i></a>
+                    <a href="@if (!empty($pages) == 1) tel:{{$pages->telp}} @else tel:{{$adminPages->telp}} @endif"><i class="las la-phone la-2x animate__animated animate__jello" style="color: white; background-color: rgb(30, 136, 229); border-radius:40px; filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.25)); padding: 10px" id="float_telp"></i></a>
                 </div>
             </div>
             <div class="row" style="margin-top: 5px">
