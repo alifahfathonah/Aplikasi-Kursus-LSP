@@ -26,7 +26,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto disabled">
-                    <li class="nav-item"><a class="nav-link" href="@if (!empty($pages) == 1) /{{$pages->username}}/about @else {{ url('/about')}} @endif">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="@if (!empty($pages) == 1) /{{$pages->username}}/ @else {{ url('/')}} @endif">Home <span class="sr-only">(current)</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="@if (!empty($pages) == 1) /{{$pages->username}}/about @else {{ url('/about')}} @endif">About</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
