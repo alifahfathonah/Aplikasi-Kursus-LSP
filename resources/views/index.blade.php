@@ -13,7 +13,7 @@
         <div class="row animate__animated animate__fadeIn">
             <div class="col-md-8 offset-md-2">
                 <h1 class="text-center">About Us</h1>
-                <p class="text-center">Abu  Properti merupakan Solusi Properti Impian anda. Kami menyediakan dan menjual berbagai macam aset properti dari segala kebutuhan, baik untuk hunian maupun Investasi.</p>
+                <p class="text-center">Abu Properti merupakan Solusi Properti Impian anda. Kami menyediakan dan menjual berbagai macam aset properti dari segala kebutuhan, baik untuk hunian maupun Investasi.</p>
             </div>
         </div>
         <div class="row text-center">

@@ -11,7 +11,7 @@
         </div>
         <section class="filter_aset" id="filter_aset">
             <div class="row">
-                <form action="/asset/filter" class="form-inline" method="POST">
+                <form action="@if (!empty($pages) == 1) /{{$pages->username}}/asset/filter @else {{url('/asset/filter')}} @endif" class="form-inline" method="POST">
                     @csrf
                     <select name="province" class="selectpicker form-control" data-live-search="true" id="province">
                         <option selected="false">Select Province</option>

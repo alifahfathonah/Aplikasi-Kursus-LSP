@@ -111,6 +111,7 @@ Route::group(['prefix' => '{pages}'], function(){
     Route::get('asset', 'AssetController@index');
     Route::get('asset/{asset}', 'AssetController@show');
     Route::get('documentation', 'DocumentsController@index');
+    Route::post('asset/filter', 'AssetController@filter');
 });
 
 
