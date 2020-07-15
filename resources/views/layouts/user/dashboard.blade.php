@@ -10,10 +10,10 @@
                 <div class="card">
                     <div class="card-header text-center">Bagikan link anda</div>
                     <div class="card-body">
-                        <p class="card-text">Saat membagikan link, pastikan anda memasukan username ke bagian akhir url. <br>
+                        <p class="card-text">Saat membagikan link, pastikan anda memasukan username di samping url {{url('/')}}. <br>
                             contoh:
                             <br>
-                            {{url('/').'/asset/1/'.Auth::user()->username}}</p>
+                            {{url('/').'/'.Auth::user()->username}}</p>
                     </div>
                 </div>
                 <div class="form-group mt-3">

@@ -36,6 +36,7 @@ class PagesController extends Controller
 
     public function contact(Pages $pages)
     {
+        $adminPages = '';
         if ($pages->exists == false) {
             $pages = '';
             $adminPages = User::where('username', 'admin')->first();
